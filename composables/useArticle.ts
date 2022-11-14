@@ -2,8 +2,7 @@ import { useBlogStore, useUserStore } from '~~/store'
 import type { Article, ArticlePayload } from '~~/types'
 
 export default function useArticle() {
-  const { $getApiUrl, $api } = useNuxtApp()
-  const { createManyArticles, createOneArticle, deleteOneArticle } = useBlogStore()
+  const { createManyArticles, deleteOneArticle } = useBlogStore()
   const { IncLoading, DecLoading } = useUserStore()
 
   async function getAll() {
@@ -17,37 +16,54 @@ export default function useArticle() {
 
   async function fetchOne(id: number) {
     IncLoading()
-    // const response = await fetch(`${$getApiUrl()}article/${id}`)
-    // const res = await response.json()
-    // createOneArticle(res)
+    const { data } = await $fetch(`/api/article/${id}`)
+    if (data?.length > 0) {
+      createManyArticles(data)
+    }
     DecLoading()
   }
 
   async function updatePublishedStatus(id: number, isPublished: boolean) {
     IncLoading()
-    // const response = await $api().patch(`article-status/${id}`, { isPublished })
-    // createOneArticle(response as unknown as Article)
+    const { data } = await $fetch(`/api/article/updateStatus-${id}`, {
+      method: 'put'
+    })
+    if (data?.length > 0) {
+      createManyArticles(data)
+    }
     DecLoading()
   }
 
-  async function postOne(article: ArticlePayload): Promise<Article> {
-    // const response = await $api().post('article', article)
-    // const articleRecieved = response as unknown as Article
-    // createOneArticle(articleRecieved)
-    // return articleRecieved
+  async function postOne(article: ArticlePayload): Promise<Article | null> {
+    const { data } = await $fetch(`/api/article/create`, {
+      method: 'post',
+      body: article,
+    })
+    if (data?.length > 0) {
+      createManyArticles(data)
+      return data[0]
+    }
+    return null
   }
 
   async function deleteOne(id: number) {
     IncLoading()
-    // await $api().delete(`article/${id}`)
-    // deleteOneArticle(id)
+    await $fetch(`/api/article/${id}`, {
+      method: 'delete'
+    })
+    deleteOneArticle(id)
     DecLoading()
   }
 
   async function patchOne(id: number, article: Article) {
     IncLoading()
-    // const response = await $api().patch(`article/${id}`, { article })
-    // createOneArticle(response as unknown as Article)
+    const { data } = await $fetch(`/api/article/${id}`, {
+      method: 'put',
+      body: article,
+    })
+    if (data?.length > 0) {
+      createManyArticles(data)
+    }
     DecLoading()
   }
 
