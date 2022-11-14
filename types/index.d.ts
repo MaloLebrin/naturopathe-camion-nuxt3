@@ -1,4 +1,4 @@
-import type API from '../helpers/api'
+import type API from '~~/helpers'
 // import type { UserStoreState } from './User'
 // import { User } from './User'
 // import type { blogState } from '.'
