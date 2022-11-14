@@ -47,7 +47,7 @@
                 @click="closeDrawer"
               >
                 <span class="sr-only">Close sidebar</span>
-                <XIcon
+                <XCircleIcon
                   class="w-6 h-6 text-white"
                   aria-hidden="true"
                 />
@@ -87,7 +87,7 @@
                 :disabled="!$userStore().isLoggedIn"
                 @click="removeCurrent"
               >
-                <LogoutIcon
+                <ArrowRightOnRectangleIcon
                   class="flex-shrink-0 w-6 h-6 mr-4 text-blueDark"
                   aria-hidden="true"
                 />
@@ -144,7 +144,7 @@
           :disabled="!$userStore().isLoggedIn"
           @click="removeCurrent"
         >
-          <LogoutIcon
+          <ArrowRightOnRectangleIcon
             class="flex-shrink-0 w-6 h-6 mr-4 text-blueDark"
             aria-hidden="true"
           />
@@ -161,8 +161,8 @@ import {
   NewspaperIcon,
   PlusCircleIcon,
   TagIcon,
-  LogoutIcon,
-  XIcon,
+  ArrowRightOnRectangleIcon,
+  XCircleIcon,
 } from '@heroicons/vue/24/outline'
 
 import {
