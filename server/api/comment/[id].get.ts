@@ -1,5 +1,5 @@
 import { serverSupabaseServiceRole } from '#supabase/server'
-import { CommentType } from '~~/server/types'
+import { CommentType } from '~~/types'
 
 export default eventHandler(async (event) => {
   const client = serverSupabaseServiceRole<CommentType>(event)

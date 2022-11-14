@@ -1,5 +1,5 @@
 import { serverSupabaseServiceRole } from "#supabase/server"
-import { Article } from "~~/server/types"
+import { Article } from "~~/types"
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)

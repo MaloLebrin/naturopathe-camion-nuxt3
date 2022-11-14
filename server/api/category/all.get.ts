@@ -1,5 +1,5 @@
 import { serverSupabaseServiceRole } from '#supabase/server'
-import { Category } from '~~/server/types'
+import { Category } from '~~/types'
 
 export default eventHandler(async (event) => {
   const client = serverSupabaseServiceRole<Category>(event)

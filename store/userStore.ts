@@ -9,7 +9,7 @@ export const useUserStore = defineStore('user', {
   getters: {
     getCurrent: state => state.currentUser,
     getCurrentUserToken: state => state?.currentUser?.token,
-    isLoggedIn: state => state.currentUser !== null,
+    getIsLoggedIn: state => state.currentUser !== null,
     isLoading: state => state.ui.loading > 0,
     getIsSidebarOpen: state => state.ui.isSidebarOpen,
     getModalName: state => state.ui.modalName,

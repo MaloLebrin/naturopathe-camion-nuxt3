@@ -17,7 +17,7 @@ export default defineNuxtConfig({
 
   buildModules: [
     // '@nuxtjs/tailwindcss',
-    // '@pinia/nuxt',
+    '@pinia/nuxt',
   ],
 
   modules: ['@nuxtjs/supabase'],
