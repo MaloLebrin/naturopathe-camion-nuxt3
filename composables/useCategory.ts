@@ -9,46 +9,49 @@ export default function useCategory() {
   async function getAll() {
     IncLoading()
     const { data } = await $fetch('/api/category/all')
-    createManyCategories(data)
+    console.log(data, '<==== data')
+    if (data?.length > 0) {
+      createManyCategories(data)
+    }
     DecLoading()
   }
 
-  // async function fetchOne(id: number) {
-  //   IncLoading()
-  //   const response = await fetch(`${$getApiUrl()}category/${id}`)
-  //   const res = await response.json()
-  //   createOneCategory(res)
-  //   DecLoading()
-  // }
+  async function fetchOne(id: number) {
+    IncLoading()
+    // const response = await fetch(`${$getApiUrl()}category/${id}`)
+    // const res = await response.json()
+    // createOneCategory(res)
+    DecLoading()
+  }
 
-  // async function postOne(newCategory: CategoryPayload) {
-  //   IncLoading()
-  //   const response = await $api().post('category', { category: newCategory })
-  //   const categoryRecieved = response as unknown as Category
-  //   createOneCategory(categoryRecieved)
-  //   DecLoading()
-  // }
+  async function postOne(newCategory: CategoryPayload) {
+    IncLoading()
+    // const response = await $api().post('category', { category: newCategory })
+    // const categoryRecieved = response as unknown as Category
+    // createOneCategory(categoryRecieved)
+    DecLoading()
+  }
 
-  // async function patchOne(id: number, newCategory: CategoryPayload) {
-  //   IncLoading()
-  //   const response = await $api().patch(`category/${id}`, { category: newCategory })
-  //   const categoryRecieved = response as unknown as Category
-  //   createOneCategory(categoryRecieved)
-  //   DecLoading()
-  // }
+  async function patchOne(id: number, newCategory: CategoryPayload) {
+    IncLoading()
+    // const response = await $api().patch(`category/${id}`, { category: newCategory })
+    // const categoryRecieved = response as unknown as Category
+    // createOneCategory(categoryRecieved)
+    DecLoading()
+  }
 
-  // async function deleteOne(id: number) {
-  //   IncLoading()
-  //   await $api().delete(`category/${id}`)
-  //   deleteOneCategory(id)
-  //   DecLoading()
-  // }
+  async function deleteOne(id: number) {
+    IncLoading()
+    // await $api().delete(`category/${id}`)
+    // deleteOneCategory(id)
+    DecLoading()
+  }
 
   return {
-    // deleteOne,
-    // fetchOne,
+    deleteOne,
+    fetchOne,
     getAll,
-    // patchOne,
-    // postOne,
+    patchOne,
+    postOne,
   }
 }

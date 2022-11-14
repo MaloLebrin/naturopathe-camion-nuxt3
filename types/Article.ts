@@ -9,7 +9,7 @@ export interface Article extends BaseEntity {
   description: string | null
   instaUrl: string | null
   facebookUrl: string | null
-  published: boolean
+  isPublished: boolean
   isInstaPost: boolean
   authorId: number
   files: FileType[]

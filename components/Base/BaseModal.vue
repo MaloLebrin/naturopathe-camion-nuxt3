@@ -47,6 +47,13 @@
 </template>
 
 <script setup lang="ts">
+import {
+  Dialog,
+  TransitionChild,
+  TransitionRoot,
+  DialogOverlay,
+} from '@headlessui/vue'
+
 interface ModalProps {
   isActive: boolean
 }

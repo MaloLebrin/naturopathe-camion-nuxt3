@@ -73,7 +73,7 @@ const restOfThem = computed(() => blogStore.getPublishedArticlesArray.length > 1
 definePageMeta({
   middleware: [
     'categories-middleware',
-    'articles-middleware'
+    'articles-middleware',
   ],
   isAuth: false,
 })
