@@ -55,7 +55,7 @@ import { object, string } from 'yup'
 import type { InferType } from 'yup'
 import { useUserStore } from '~~/store'
 import type { Category } from '~~/types'
-import { appColors, customColors } from '~~/helpers'
+import { appColors, customColors } from '~~/helpers/colors'
 
 const props = defineProps<Props>()
 

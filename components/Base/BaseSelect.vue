@@ -20,7 +20,7 @@
     >
       <span class="block truncate">{{ displayValue || placeholder }}</span>
       <span class="absolute inset-y-0 right-0 flex items-center pr-6 pointer-events-none">
-        <SelectorIconOutline
+        <ChevronUpDownIcon
           class="w-6 h-6 text-blueDark"
           aria-hidden="true"
         />
@@ -51,7 +51,7 @@
               v-if="selected"
               class="absolute inset-y-0 right-0 flex items-center pr-6 text-blueDark"
             >
-              <CheckIconOutline
+              <CheckCircleIcon
                 class="w-6 h-6"
                 aria-hidden="true"
               />
@@ -70,6 +70,16 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  Listbox,
+  ListboxOption,
+  ListboxOptions,
+  ListboxButton,
+  ListboxLabel,
+} from '@headlessui/vue'
+import {
+  CheckCircleIcon, ChevronUpDownIcon,
+} from '@heroicons/vue/24/outline'
 import { ErrorMessage, useField } from 'vee-validate'
 
 interface Props {

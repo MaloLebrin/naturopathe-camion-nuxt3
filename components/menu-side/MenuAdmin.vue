@@ -181,7 +181,7 @@ const navigation = [
   { name: 'Liste des articles', path: 'Admin-articles', icon: NewspaperIcon, current: true },
   // { name: 'Créer un article', path: 'Admin-articles-create', icon: PlusCircleIcon, current: false },
   { name: 'Liste des catégories', path: 'Admin-categories', icon: TagIcon, current: false },
-  // { name: 'Créer une catégorie', path: 'Admin-categories-create', icon: PlusCircleIcon, current: false },
+  { name: 'Créer une catégorie', path: 'Admin-categories-create', icon: PlusCircleIcon, current: false },
   // { name: 'Mon compte', path: '', icon: UserIcon, current: false },
 ]
 
