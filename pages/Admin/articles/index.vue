@@ -68,9 +68,9 @@
   
   useHead({
     title: `Naturopathe-Camion | CMS Articles`,
-  meta: [
-    { name: 'description', content: 'Administration de gestion des articles' },
-  ],
+    meta: [
+      { name: 'description', content: 'Administration de gestion des articles' },
+    ],
   })
   </script>
   
