@@ -32,7 +32,7 @@
       @blur="handleBlur"
     >
     <div class="flex flex-col items-center space-y-6">
-      <PhotographIconOutline class="w-12 h-12 overflow-hidden text-gray-900" />
+      <PhotoIcon class="w-12 h-12 overflow-hidden text-gray-900" />
       <p class="font-bold text-gray-900 underline">
         Sélectionnez une photo sur votre appareil
       </p>
@@ -52,7 +52,7 @@
       @click="onResetField(resetField)"
     >
       <template #icon>
-        <TrashIconOutline />
+        <TrashIcon />
       </template>
       Supprimer
     </BaseButton>
@@ -61,6 +61,7 @@
 </template>
 
 <script lang="ts" setup>
+import { PhotoIcon, TrashIcon } from '@heroicons/vue/24/outline'
 import { Field } from 'vee-validate'
 
 interface Props {
