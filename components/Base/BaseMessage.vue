@@ -4,19 +4,19 @@
   :class="colorClasses"
 >
   <slot name="title" />
-  <InformationCircleIconOutline
+  <InformationCircleIcon
     v-if="type === 'default'"
     class="w-6 h-6 mr-2 text-blue-500"
   />
-  <ExclamationIconOutline
+  <ExclamationTriangleIcon
     v-if="type === 'warning'"
     class="w-6 h-6 mr-2 text-orange-500"
   />
-  <XCircleIconOutline
+  <XCircleIcon
     v-if="type === 'danger'"
     class="w-6 h-6 mr-2 text-red-500"
   />
-  <CheckCircleIconOutline
+  <CheckCircleIcon
     v-if="type === 'success'"
     class="w-6 h-6 mr-2 text-green-500"
   />
@@ -26,6 +26,10 @@
 </template>
 
 <script setup lang="ts">
+import {
+CheckCircleIcon, ExclamationTriangleIcon, InformationCircleIcon, XCircleIcon,
+} from '@heroicons/vue/24/outline'
+
 interface Props {
   type?: 'warning' | 'danger' | 'success' | 'default'
 }

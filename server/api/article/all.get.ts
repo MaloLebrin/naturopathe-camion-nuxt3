@@ -3,5 +3,5 @@ import { Article } from '~~/types'
 
 export default eventHandler(async (event) => {
   const client = serverSupabaseServiceRole<Article>(event)
-  return client.from('Article').select(`*, Category(*)`)
+  return client.from('Article').select()
 })
