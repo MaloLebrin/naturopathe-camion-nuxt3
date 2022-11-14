@@ -11,10 +11,6 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/supabase'],
 
-  supabase: {    // Options 
-
-  },
-
   css: [
     '@/assets/css/main.css',
   ],
