@@ -9,7 +9,7 @@ export default function useCategory() {
   async function getAll() {
     IncLoading()
     const { data } = await $fetch('/api/category/all')
-    console.log(data, '<==== data')
+
     if (data?.length > 0) {
       createManyCategories(data)
     }
