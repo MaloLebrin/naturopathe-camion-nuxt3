@@ -3,5 +3,5 @@ import { FileType } from '~~/types'
 
 export default eventHandler(async (event) => {
   const client = serverSupabaseServiceRole<FileType>(event)
-  return client.from('File').select().eq('id', event.context.params.id)
+  return client.from('File').select()
 })
