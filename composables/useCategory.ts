@@ -2,7 +2,6 @@ import { useBlogStore, useUserStore } from '~~/store'
 import type { Category, CategoryPayload } from '~~/types'
 
 export default function useCategory() {
-  const { $getApiUrl, $api } = useNuxtApp()
   const { createManyCategories, createOneCategory, deleteOneCategory } = useBlogStore()
   const { IncLoading, DecLoading } = useUserStore()
 
