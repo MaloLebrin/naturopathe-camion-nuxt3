@@ -17,17 +17,19 @@ export default function useCategory() {
 
   async function fetchOne(id: number) {
     IncLoading()
-    // const response = await fetch(`${$getApiUrl()}category/${id}`)
-    // const res = await response.json()
     // createOneCategory(res)
     DecLoading()
   }
 
   async function postOne(newCategory: CategoryPayload) {
     IncLoading()
-    // const response = await $api().post('category', { category: newCategory })
-    // const categoryRecieved = response as unknown as Category
-    // createOneCategory(categoryRecieved)
+    const { data } = await $fetch(`/api/category/create`, {
+      method: 'post',
+      body: newCategory,
+    })
+    if (data?.length > 0) {
+      createManyCategories(data)
+    }
     DecLoading()
   }
 
