@@ -25,7 +25,7 @@
         getBackgroundClasses(errors, meta),
       ]"
     >
-      <LinkIconOutline class="w-5 h-5" />
+      <LinkIcon class="w-5 h-5" />
     </div>
     <input
       v-bind="{ ...field, ...$attrs }"
@@ -44,11 +44,11 @@
       @blur="handleBlur"
     >
     <div class="flex items-center pr-4 space-x-4 bg-white shadow">
-      <XCircleIconSolid
+      <XCircleIcon
         v-if="errors.length > 0"
         class="w-5 h-5 text-red"
       />
-      <CheckCircleIconSolid
+      <CheckCircleIcon
         v-else-if="meta.dirty && meta.valid"
         class="w-5 h-5 text-green"
       />
@@ -73,7 +73,8 @@
 <script setup lang="ts">
 import type { FieldMeta } from 'vee-validate'
 import { ErrorMessage, Field } from 'vee-validate'
-// import useClipboard from 'vue-clipboard3'
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/vue/24/solid'
+import { LinkIcon } from '@heroicons/vue/24/outline'
 
 interface Props {
   disabled?: boolean
@@ -133,10 +134,3 @@ function getBackgroundClasses(errors: string[], meta: FieldMeta<string>) {
   return ''
 }
 </script>
-
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-}
-</script>
-
