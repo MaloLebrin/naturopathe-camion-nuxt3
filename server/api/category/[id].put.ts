@@ -6,10 +6,7 @@ export default defineEventHandler(async (event) => {
 
   const result = await serverSupabaseServiceRole<Category>(event)
     .from('Category')
-    .update({
-      ...body,
-      updatedAt: new Date(),
-    })
+    .update(body)
     .eq('id', event.context.params.id)
     .select()
 

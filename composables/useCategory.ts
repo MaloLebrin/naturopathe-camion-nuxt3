@@ -17,7 +17,10 @@ export default function useCategory() {
 
   async function fetchOne(id: number) {
     IncLoading()
-    // createOneCategory(res)
+    const { data } = await $fetch(`/api/category/${id}`)
+    if (data?.length > 0) {
+      createManyCategories(data)
+    }
     DecLoading()
   }
 
@@ -35,9 +38,14 @@ export default function useCategory() {
 
   async function patchOne(id: number, newCategory: CategoryPayload) {
     IncLoading()
-    // const response = await $api().patch(`category/${id}`, { category: newCategory })
-    // const categoryRecieved = response as unknown as Category
-    // createOneCategory(categoryRecieved)
+    console.log(newCategory, '<==== newCategory')
+    const { data } = await $fetch(`/api/category/${id}`, {
+      method: 'put',
+      body: newCategory,
+    })
+    if (data?.length > 0) {
+      createManyCategories(data)
+    }
     DecLoading()
   }
 

@@ -13,11 +13,8 @@
     {{ category?.articles?.length }}
   </td>
 
-  <!-- <td class="px-3 py-4 text-sm text-gray-500 truncate whitespace-nowrap">
-    <span v-if="category.publishedAt">{{ $toFormat(category.publishedAt, 'D/MM/YYYY') }}</span>
-  </td> -->
   <td class="relative flex items-center justify-center py-4 pl-3 pr-4 space-x-2 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
-    <!-- <BaseButton
+    <BaseButton
       tag="nuxt-link"
       :to="{
         name: 'Admin-categories-edit-id',
@@ -26,7 +23,7 @@
       }"
     >
       Modifier
-    </BaseButton> -->
+    </BaseButton>
     <BaseButton
       color="red"
       @click="deleteCategory"
