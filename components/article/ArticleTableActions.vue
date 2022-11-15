@@ -29,7 +29,7 @@
     >
       <div v-if="!$userStore().isLoading">
         <div class="px-1 py-1">
-          <MenuItem v-slot="{ active }">
+          <!-- <MenuItem v-slot="{ active }">
             <NuxtLink
               class="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer group"
               :class="[
@@ -51,7 +51,7 @@
               />
               Modifier
             </NuxtLink>
-          </MenuItem>
+          </MenuItem> -->
         </div>
         <MenuItem
           v-slot="{ active }"
@@ -65,8 +65,8 @@
               active ? 'bg-red-100 text-red-800' : 'text-gray-900',
             ]"
             :disabled="$userStore().isLoading"
+            @click="submit()"
             >
-            <!-- @click="updatePublishedStatus(article.id, !article.isPublished)" -->
             <CheckCircleIcon
               v-if="article.isPublished"
               :active="active"
@@ -79,7 +79,7 @@
               class="w-5 h-5 mr-2 text-red-500"
               aria-hidden="true"
             />
-            {{ article.isPublished ? 'Actif' : 'Inactif' }}
+            {{ article.isPublished ? 'Actif (Désactiver)' : 'Inactif (Activer)' }}
           </button>
         </MenuItem>
         <div class="px-1 py-1">
@@ -130,15 +130,20 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const { updatePublishedStatus } = useArticle()
+const { patchOne } = useArticle()
 const userStore = useUserStore()
 const { setModalState } = userStore
 
-const isPublisehd = ref(props.article.isPublished)
+async function submit() {
+  const payload = {
+    ...props.article,
+    isPublished: props.article.isPublished ? false : true,
+    publishedAt: props.article.isPublished ? null : new Date(),
+  }
 
-watch(() => isPublisehd.value, async newValue => {
-  await updatePublishedStatus(props.article.id, newValue)
-})
+  await patchOne(props.article.id, payload)
+
+}
 
 function deleteConfirm() {
   setModalState(ModalNameEnum.DELETE_ARTICLE, {

@@ -23,17 +23,6 @@ export default function useArticle() {
     DecLoading()
   }
 
-  async function updatePublishedStatus(id: number, isPublished: boolean) {
-    IncLoading()
-    const { data } = await $fetch(`/api/article/updateStatus-${id}`, {
-      method: 'put'
-    })
-    if (data?.length > 0) {
-      createManyArticles(data)
-    }
-    DecLoading()
-  }
-
   async function postOne(article: ArticlePayload): Promise<Article | null> {
     const { data } = await $fetch(`/api/article/create`, {
       method: 'post',
@@ -59,7 +48,9 @@ export default function useArticle() {
     IncLoading()
     const { data } = await $fetch(`/api/article/${id}`, {
       method: 'put',
-      body: article,
+      body: {
+        ...article,
+      },
     })
     if (data?.length > 0) {
       createManyArticles(data)
@@ -73,6 +64,5 @@ export default function useArticle() {
     getAll,
     patchOne,
     postOne,
-    updatePublishedStatus,
   }
 }

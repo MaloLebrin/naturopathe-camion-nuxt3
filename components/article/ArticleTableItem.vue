@@ -22,9 +22,9 @@
     <span v-if="article.publishedAt">{{ $toFormat(article.publishedAt, 'D/MM/YYYY') }}</span>
   </td>
   <td class="relative flex items-center justify-center py-4 pl-3 pr-4 space-x-2 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
-    <!-- <ArticleTableActions
+    <ArticleTableActions
       :article="article"
-    /> -->
+    />
   </td>
 </tr>
 </template>
