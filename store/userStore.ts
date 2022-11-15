@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { ModalNameEnum, User } from '~~/types'
+import type { ModalNameEnum, SessionSupabase, UserSupabase } from '~~/types'
 import { defaultUserState } from '~~/types'
 
 export const useUserStore = defineStore('user', {
@@ -8,7 +8,7 @@ export const useUserStore = defineStore('user', {
   }),
   getters: {
     getCurrent: state => state.currentUser,
-    getCurrentUserToken: state => state?.currentUser?.token,
+    getCurrentUserToken: state => state?.currentSession?.access_token,
     getIsLoggedIn: state => state.currentUser !== null,
     isLoading: state => state.ui.loading > 0,
     getIsSidebarOpen: state => state.ui.isSidebarOpen,
@@ -17,11 +17,15 @@ export const useUserStore = defineStore('user', {
     isModalActive: state => state.ui.modalName !== null,
   },
   actions: {
-    setCurrent(user: User) {
+    setCurrentUser(user: UserSupabase) {
       this.currentUser = user
+    },
+    setCurrentSession(session: SessionSupabase) {
+      this.currentSession = session
     },
     removeCurrent() {
       this.currentUser = null
+      this.currentSession = null
     },
     IncLoading() {
       this.ui.loading++

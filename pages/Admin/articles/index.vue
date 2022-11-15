@@ -59,7 +59,7 @@
   definePageMeta({
     layout: 'admin',
     middleware: [
-      // 'nav-guard-middleware',
+      'nav-guard-middleware',
       'categories-middleware',
       'articles-middleware',
     ],

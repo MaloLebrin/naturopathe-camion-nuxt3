@@ -7,7 +7,7 @@
 <script setup lang="ts">
 definePageMeta({
   middleware: [
-    // 'nav-guard-middleware'
+    'nav-guard-middleware'
   ],
   layout: 'admin',
   isAuth: true,

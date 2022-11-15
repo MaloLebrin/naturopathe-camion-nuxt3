@@ -52,15 +52,14 @@ import { Form } from 'vee-validate'
 import type { SchemaOf } from 'yup'
 import { object, string } from 'yup'
 import { useUserStore } from '~~/store/userStore'
-import type { User } from '~~/types'
+import type { SessionSupabase, User, UserSupabase } from '~~/types'
 
 definePageMeta({
   layout: 'admin',
   isAuth: true,
 })
 
-const { $api } = useNuxtApp()
-const { IncLoading, DecLoading, setCurrent } = useUserStore()
+const { IncLoading, DecLoading, setCurrentUser, setCurrentSession } = useUserStore()
 const router = useRouter()
 // console.log(router.getRoutes(), 'router.getRoutes()')
 
@@ -75,15 +74,27 @@ const schema: SchemaOf<FormShape> = object({
 })
 
 const form = reactive<FormShape>({
-  email: '',
-  password: '',
+  email: 'malolebrin@gmail.com',
+  password: 'c2BhhMk?48+BDt9q',
 })
 
 async function onSubmit() {
   IncLoading()
-  const res = await $api().post<User>('login', form as unknown as User)
-  setCurrent(res)
-  router.push({ name: 'Admin-articles' })
+  const client = useSupabaseClient()
+
+  const { data, error } = await client.auth.signInWithPassword({
+    email: form.email,
+    password: form.password,
+  })
+  if (error) {
+    console.error(error, '<==== error')
+  }
+
+  if (data) {    
+    setCurrentUser(data.user as unknown as UserSupabase)
+    setCurrentSession(data.session as unknown as SessionSupabase)
+    router.push({ name: 'Admin-articles' })
+  }
   DecLoading()
 }
 

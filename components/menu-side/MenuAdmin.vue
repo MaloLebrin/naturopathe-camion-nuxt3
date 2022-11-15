@@ -70,8 +70,8 @@
                 :key="item.name"
                 :to="{ name: item.path }"
                 class="flex items-center px-2 py-2 text-base font-medium rounded-md group"
-                :class="[isCurrentPage(item.path).value ? 'bg-brown text-white' : 'text-blueDark', $userStore().isLoggedIn ? 'cursor-pointer' : 'cursor-not-allowed']"
-                :disabled="!$userStore().isLoggedIn"
+                :class="[isCurrentPage(item.path).value ? 'bg-brown text-white' : 'text-blueDark', $userStore().getIsLoggedIn ? 'cursor-pointer' : 'cursor-not-allowed']"
+                :disabled="!$userStore().getIsLoggedIn"
               >
                 <component
                   :is="item.icon"
@@ -84,7 +84,7 @@
               <NuxtLink
                 :to="{ name: 'Admin' }"
                 class="flex items-center px-2 py-2 text-sm font-medium rounded-md group"
-                :disabled="!$userStore().isLoggedIn"
+                :disabled="!$userStore().getIsLoggedIn"
                 @click="removeCurrent"
               >
                 <ArrowRightOnRectangleIcon
@@ -127,8 +127,8 @@
           :key="item.name"
           :to="{ name: item.path }"
           class="flex items-center px-2 py-2 text-sm font-medium rounded-md group"
-          :class="[isCurrentPage(item.path).value ? 'bg-brown text-white' : 'text-blueDark', $userStore().isLoggedIn ? 'cursor-pointer' : 'cursor-not-allowed']"
-          :disabled="!$userStore().isLoggedIn"
+          :class="[isCurrentPage(item.path).value ? 'bg-brown text-white' : 'text-blueDark', $userStore().getIsLoggedIn ? 'cursor-pointer' : 'cursor-not-allowed']"
+          :disabled="!$userStore().getIsLoggedIn"
         >
           <component
             :is="item.icon"
@@ -141,7 +141,7 @@
         <NuxtLink
           :to="{ name: 'Admin' }"
           class="flex items-center px-2 py-2 text-sm font-medium rounded-md group"
-          :disabled="!$userStore().isLoggedIn"
+          :disabled="!$userStore().getIsLoggedIn"
           @click="removeCurrent"
         >
           <ArrowRightOnRectangleIcon
