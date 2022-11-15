@@ -29,7 +29,7 @@
     >
       <div v-if="!$userStore().isLoading">
         <div class="px-1 py-1">
-          <!-- <MenuItem v-slot="{ active }">
+          <MenuItem v-slot="{ active }">
             <NuxtLink
               class="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer group"
               :class="[
@@ -51,7 +51,7 @@
               />
               Modifier
             </NuxtLink>
-          </MenuItem> -->
+          </MenuItem>
         </div>
         <MenuItem
           v-slot="{ active }"

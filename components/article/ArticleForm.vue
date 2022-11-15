@@ -118,16 +118,29 @@
       name="facebookUrl"
     />
   </template>
+  <template v-else>
+    <FieldArray
+        key-path="id"
+        name="files"
+      >
+  
+    <BasePictureInput
+      label="Image de l'article"
+      name="files[0]"
+      wrapper-classes="col-span-1 md:col-span-2"
+      :initial-url="values?.files && values.files[0] ? values.files[0]?.url : null"
+      class="col-span-2"
+      is-required
+    />
+    </FieldArray>
+  </template>
 
-  <BasePictureInput
-    v-else
-    label="Image de l'article"
-    name="files"
-    wrapper-classes="col-span-1 md:col-span-2"
-    :initial-url="values?.files && values.files[0] ? values.files[0]?.url : null"
-    class="col-span-2"
-    is-required
-  />
+  <div class="flex-col items-center justify-center pt-5 md:col-span-2">
+    <p>valid: {{ meta.valid }}</p>
+    <p>dirty: {{ meta.dirty }}</p>
+    <p>error: {{ errors }}</p>
+    <p>value: {{ values.files }}</p>
+  </div>
 
   <div class="flex items-center justify-center pt-5 md:col-span-2">
     <div class="inline-flex">
@@ -154,6 +167,7 @@ interface IForm extends InferType<typeof schema> {}
 
 interface Props {
   article?: Article
+  isDebug?: boolean
 }
 
 const props = defineProps<Props>()
@@ -177,7 +191,7 @@ const schema = object({
   facebookUrl: string().url('Veuillez rentrer une url valide').nullable(),
   category: number().nullable().required('La catégorie de l\'article est requise'),
   isInstaPost: boolean().required('Veuillez indiquer si c\'est un post Instagram'),
-  files: array().required('Votre logotype est requis.').min(1, 'Votre logotype est requis'),
+  files: array().of(string()).required('Votre logotype est requis.').min(1, 'Votre logotype est requis'),
 })
 
 const initialValue = {

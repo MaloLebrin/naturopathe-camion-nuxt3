@@ -15,7 +15,8 @@
   <button
     v-if="!imageUrl"
     type="button"
-    class="flex flex-col items-center justify-start w-full px-32 py-12 mt-12 border-2 border-gray-600 border-dashed cursor-pointer hover:bg-gray-100 hover:border-gray-800 focus:outline-none focus:border-pink-400"
+    :disabled="disabled"
+    class="flex flex-col items-center justify-start w-full px-32 py-12 mt-12 border-2 border-gray-600 border-dashed cursor-pointer hover:bg-gray-100 hover:border-gray-800 focus:outline-none focus:border-pink-400 disabled:cursor-not-allowed"
     @click.stop="onWrapperClick"
   >
     <!-- Note the `sr-only` class, all styling is done on the wrapper button -->
@@ -26,7 +27,7 @@
       :aria-disabled="disabled"
       :name="name"
       type="file"
-      class="sr-only"
+      class="sr-only disabled:cursor-not-allowed"
       accept="image/*"
       @change="onChange(handleChange)"
       @blur="handleBlur"
@@ -88,6 +89,7 @@ const fileInput = ref<HTMLInputElement | null>(null)
 const imageUrl = ref<null | string>(props.initialUrl)
 
 function onWrapperClick() {
+  console.log(fileInput.value, '<==== fileInput.value')
   if (fileInput.value) {
     fileInput.value.click()
   }
