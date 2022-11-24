@@ -1,7 +1,7 @@
 <template>
 <article
   v-if="article"
-  class="space-y-8"
+  class="min-h-full space-y-8"
 >
   <div
     v-if="category"
@@ -17,9 +17,11 @@
       Dernière mise à jour le {{ $toFormat(article.updatedAt, 'D MM YYYY') }}
     </p>
   </div>
+
   <h1 class="text-5xl font-bold text-blue-900">
     {{ article.title }}
   </h1>
+
   <div class="flex items-center py-4 space-x-4 border-b border-gray-200">
     <img
       class="w-16 h-16 rounded-full"
@@ -38,15 +40,31 @@
       </p>
     </div>
   </div>
-  <!-- TODO Carousel -->
+
   <template v-if="article.fileArrayBase64?.length > 0">
-    <img
-      v-for="(file, index) in article.fileArrayBase64"
-      :key="index"
-      :src="file"
-      :alt="`${file}-illustration-${index}`"
-    >
+    <Carousel
+        class="h-full"
+        :items-to-show="1"
+        :autoplay="4000"
+        >
+          <Slide
+            v-for="(file, index) in article.fileArrayBase64"
+            :key="index"
+            class="object-contain h-full slide"
+          >
+            <img
+              class="object-contain"
+              :src="file"
+              :alt="`${file}-illustration-${index}`"
+            >
+          </Slide>
+
+        <template #addons>
+            <Pagination />
+        </template>
+    </Carousel>
   </template>
+
   <div class="leading-8 text-justify indent-8">
     <Markdown :source="article.content" />
   </div>
@@ -55,8 +73,9 @@
 
 <script setup lang="ts">
 import Markdown from 'vue3-markdown-it'
+import "vue3-carousel/dist/carousel.css"
+import { Carousel, Pagination, Slide } from 'vue3-carousel'
 import type { Article, Category } from '~~/types'
-// TODO add carousel
 
 interface Props {
   article: Article
@@ -64,4 +83,13 @@ interface Props {
 }
 
 defineProps<Props>()
+
+onMounted(() => {
+  if (document) {    
+    const viewport = document?.getElementsByClassName('carousel__viewport') as any
+    for(let i=0, len=viewport.length; i<len; i++) {
+      viewport[i].style.setProperty('max-height', '100%', "important")
+    }
+  }
+})
 </script>

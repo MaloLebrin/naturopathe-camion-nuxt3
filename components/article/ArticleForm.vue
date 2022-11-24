@@ -53,7 +53,7 @@
       label="Sélectionner une catégorie"
       name="categoryId"
       placeholder="Choisissez une catégorie"
-      :display-value="$blogStore().getOneCategory(values.category)?.name"
+      :display-value="$blogStore().getOneCategory(values.categoryId)?.name"
       is-required
       :error="errors.category"
     >
@@ -104,7 +104,6 @@
           :label="`Image du Post ${index + 1}`"
           :name="`files[${index}]`"
           :initial-url="values?.files && values?.files[index] ? values?.files[index]?.url : null"
-          :disabled="article !== null && article !== undefined"
         />
       </div>
     </FieldArray>
@@ -202,7 +201,7 @@ const initialValue = {
   facebookUrl: props.article?.facebookUrl || null,
   categoryId: props.article?.categoryId || null,
   isInstaPost: props.article?.isInstaPost || false,
-  files: props.article?.files || [],
+  files: props.article?.fileArrayBase64 || [],
 }
 
 async function onSubmit(form: IForm) {
