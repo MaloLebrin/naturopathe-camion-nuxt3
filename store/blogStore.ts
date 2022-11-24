@@ -8,13 +8,19 @@ export const useBlogStore = defineStore('Blog', {
   }),
   getters: {
     getArticlesArray: state => state.articles,
+
     getPublishedArticlesArray: state => state.articles.filter(article => article.isPublished),
+
     isArticleAlreadyStored: state => {
       return (id: number) => state.articles.find(article => article.id === id) !== undefined
     },
+
     getCategoriesArray: state => state.categories,
+
     getOneArticle: state => (id: number) => state.articles.find(article => article.id === id),
+
     getOneCategory: state => (id: number) => state.categories.find(category => category.id === id),
+
     getCategoryByArticleId: state => (articleId: number) => {
       const article = state.articles.find(article => article.id === articleId)
       if (article) {
@@ -22,8 +28,10 @@ export const useBlogStore = defineStore('Blog', {
       }
       return undefined
     },
+
     isCategoryAlreadyStored: state => (categoryId: number) => state.categories.find(category => category.id === categoryId) !== undefined,
   },
+
   actions: {
     createOneArticle(article: Article) {
       if (this.isArticleAlreadyStored(article.id)) {

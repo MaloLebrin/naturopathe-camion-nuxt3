@@ -51,8 +51,10 @@ export default function useCategory() {
 
   async function deleteOne(id: number) {
     IncLoading()
-    // await $api().delete(`category/${id}`)
-    // deleteOneCategory(id)
+    await $fetch(`/api/category/${id}`, {
+      method: 'delete'
+    })
+    deleteOneCategory(id)
     DecLoading()
   }
 

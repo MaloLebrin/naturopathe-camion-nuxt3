@@ -9,7 +9,7 @@ export default function useArticle() {
     IncLoading()
     const { data } = await $fetch('/api/article/all')
     if (data?.length > 0) {
-      createManyArticles(data)
+      createManyArticles(formatedArticles(data))
     }
     DecLoading()
   }
@@ -18,7 +18,7 @@ export default function useArticle() {
     IncLoading()
     const { data } = await $fetch(`/api/article/${id}`)
     if (data?.length > 0) {
-      createManyArticles(data)
+      createManyArticles(formatedArticles(data))
     }
     DecLoading()
   }
@@ -29,8 +29,9 @@ export default function useArticle() {
       body: article,
     })
     if (data?.length > 0) {
-      createManyArticles(data)
-      return data[0]
+      const articles = formatedArticles(data)
+      createManyArticles(articles)
+      return articles[0]
     }
     return null
   }
@@ -53,13 +54,21 @@ export default function useArticle() {
       },
     })
     if (data?.length > 0) {
-      createManyArticles(data)
+      createManyArticles(formatedArticles(data))
     }
     DecLoading()
   }
 
+  function formatedArticles(articles: Article[]): Article[] {
+    return articles.map(article => ({
+      ...article,
+      fileArrayBase64: article.fileArrayBase64 ? article.fileArrayBase64.filter(str => str) : [],
+    }))
+  }
+
   return {
     deleteOne,
+    formatedArticles,
     fetchOne,
     getAll,
     patchOne,

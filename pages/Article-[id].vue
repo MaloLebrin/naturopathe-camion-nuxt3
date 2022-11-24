@@ -4,9 +4,10 @@
     to="/blog"
     class="flex items-center px-4 py-6 space-x-2"
   >
-    <ArrowCircleLeftIconOutline class="w-6 h-6 text-gray-700" />
+    <ArrowLeftCircleIcon class="w-6 h-6 text-gray-700" />
     <span>Retour</span>
   </NuxtLink>
+
   <transition name="fade">
     <div class="flex items-center mx-auto">
       <div
@@ -21,6 +22,7 @@
             :category="articleCategory"
           />
         </template>
+
         <template
           v-else
         >
@@ -37,6 +39,7 @@
 
 <script setup lang="ts">
 import { useBlogStore } from '~~/store'
+import { ArrowLeftCircleIcon } from '@heroicons/vue/24/outline'
 
 const blogStore = useBlogStore()
 const route = useRoute()

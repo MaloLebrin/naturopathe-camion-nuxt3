@@ -1,9 +1,8 @@
-import { serverSupabaseServiceRole } from "#supabase/server"
-import { Article } from "~~/types"
+import { serverSupabaseServiceRole } from '#supabase/server'
+import { Article } from '~~/types'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const body = await readBody(event)
-  console.log(body, '<==== body')
 
   const result = await serverSupabaseServiceRole<Article>(event)
     .from('Article')

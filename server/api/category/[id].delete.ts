@@ -3,5 +3,5 @@ import { Category } from '~~/types'
 
 export default defineEventHandler(async event => {
   const client = serverSupabaseServiceRole<Category>(event)
-  return client.from('File').select().eq('id', event.context.params.id)
+  return client.from('Category').delete().eq('id', event.context.params.id)
 })
