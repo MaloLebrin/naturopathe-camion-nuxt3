@@ -1,0 +1,38 @@
+name: 🛠 Tests-CI
+
+on:
+  pull_request:
+
+env:
+  NODE_ENV: prod
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: [14.x, 16.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install yarn
+        uses: actions/setup-node@v3
+
+      - name: ⚙️ Set node ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: ⚙️ Setup
+        run: npm i -g @antfu/ni
+
+      - name: 🔧 Install
+        run: nci
+
+      - name: 🏗 Build & type checking
+        run: nr build
