@@ -51,7 +51,7 @@
   <template v-if="$blogStore().getCategoriesArray.length > 0">
     <BaseSelect
       label="Sélectionner une catégorie"
-      name="category"
+      name="categoryId"
       placeholder="Choisissez une catégorie"
       :display-value="$blogStore().getOneCategory(values.category)?.name"
       is-required
@@ -135,7 +135,7 @@
     </FieldArray>
   </template>
 
-  <div class="flex-col items-center justify-center pt-5 md:col-span-2">
+  <div v-if="isDebug" class="flex-col items-center justify-center pt-5 md:col-span-2">
     <p>valid: {{ meta.valid }}</p>
     <p>dirty: {{ meta.dirty }}</p>
     <p>error: {{ errors }}</p>
@@ -174,8 +174,8 @@ const props = defineProps<Props>()
 
 const userStore = useUserStore()
 const { IncLoading, DecLoading } = userStore
-const { postMany } = useFile()
-const { postOne, fetchOne, patchOne } = useArticle()
+const { fileArrayToBase64 } = useFile()
+const { postOne, patchOne } = useArticle()
 const router = useRouter()
 
 const maxPictures = 8
@@ -189,18 +189,18 @@ const schema = object({
   description: string().required('La description de l\'article est requise'),
   instaUrl: string().url('Veuillez rentrer une url valide').nullable(),
   facebookUrl: string().url('Veuillez rentrer une url valide').nullable(),
-  category: number().nullable().required('La catégorie de l\'article est requise'),
+  categoryId: number().nullable().required('La catégorie de l\'article est requise'),
   isInstaPost: boolean().required('Veuillez indiquer si c\'est un post Instagram'),
   files: array().of(string()).required('Votre logotype est requis.').min(1, 'Votre logotype est requis'),
 })
 
 const initialValue = {
-  title: props.article?.title || '',
-  content: props.article?.content || '',
-  description: props.article?.description || '',
+  title: props.article?.title || 'f',
+  content: props.article?.content || 'f',
+  description: props.article?.description || 'f',
   instaUrl: props.article?.instaUrl || null,
   facebookUrl: props.article?.facebookUrl || null,
-  category: props.article?.categoryId || null,
+  categoryId: props.article?.categoryId || null,
   isInstaPost: props.article?.isInstaPost || false,
   files: props.article?.files || [],
 }
@@ -208,34 +208,23 @@ const initialValue = {
 async function onSubmit(form: IForm) {
   IncLoading()
   try {
-    let files: File[] | null = null
-    if (form.isInstaPost) {
-      files = form?.files.filter(file => file).map(file => file[0])
-    } else {
-      files = form?.files.filter(file => file)
-    }
+
     const payload: ArticlePayload = {
       ...form,
-      categoryId: form.category,
+      fileArrayBase64: await fileArrayToBase64(form.files as unknown as File[]),
     }
-    delete payload?.files
+    
     if (props.article) {
       const articleToPatch = {
         ...props.article,
         ...form,
-        files: props.article?.files,
-        categoryId: form.category,
+        fileArrayBase64: await fileArrayToBase64(form.files as unknown as File[]),
       }
-      await patchOne(props.article.id, articleToPatch)
+      delete articleToPatch?.files
+      await patchOne(props.article.id, articleToPatch as unknown as Article)
       router.push({ name: 'Article-id', params: { id: props.article.id } })
     } else {
       const article = await postOne(payload)
-      if (article && !props.article) {
-        const formData = new FormData()
-        files?.forEach(file => formData.append('files', file))
-        await postMany(formData, article.id)
-        await fetchOne(article.id)
-      }
       router.push({ name: 'Article-id', params: { id: article.id } })
     }
   } catch (error) {

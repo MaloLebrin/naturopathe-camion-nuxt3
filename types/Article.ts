@@ -14,6 +14,7 @@ export interface Article extends BaseEntity {
   authorId: number
   files: FileType[]
   categoryId: number | null
+  fileArrayBase64: string[]
 }
 
 export interface blogState {
@@ -29,6 +30,7 @@ export interface ArticlePayload {
   instaUrl: string
   facebookUrl: string
   files: string[]
+  fileArrayBase64: string[]
 }
 
 export function defaultBlogState(): blogState {

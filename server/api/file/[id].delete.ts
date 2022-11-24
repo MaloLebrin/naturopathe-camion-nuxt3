@@ -1,8 +1,8 @@
+import cloudinary from 'cloudinary'
 import { serverSupabaseServiceRole } from '#supabase/server'
 import { FileType } from '~~/types'
-import cloudinary from 'cloudinary'
 
-export default eventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const client = serverSupabaseServiceRole<FileType>(event)
 
   cloudinary.v2.config({
