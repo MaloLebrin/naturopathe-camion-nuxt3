@@ -39,12 +39,12 @@
     </div>
   </div>
   <!-- TODO Carousel -->
-  <template v-if="article.files?.length > 0">
+  <template v-if="article.fileArrayBase64?.length > 0">
     <img
-      v-for="file in article.files"
-      :key="file.id"
-      :src="file.secure_url"
-      :alt="file.name"
+      v-for="(file, index) in article.fileArrayBase64"
+      :key="index"
+      :src="file"
+      :alt="`${file}-illustration-${index}`"
     >
   </template>
   <div class="leading-8 text-justify indent-8">

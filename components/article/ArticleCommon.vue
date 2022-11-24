@@ -17,9 +17,11 @@
       Dernière mise à jour le {{ $toFormat(article.updatedAt, 'D MM YYYY') }}
     </p>
   </div>
+
   <h1 class="text-5xl font-bold text-blue-900">
     {{ article.title }}
   </h1>
+
   <div class="flex items-center py-4 space-x-4 border-b border-gray-200">
     <img
       class="w-16 h-16 rounded-full"
@@ -38,11 +40,13 @@
       </p>
     </div>
   </div>
+
   <img
-    v-if="article.files?.length > 0"
-    :src="article.files[0]?.secure_url"
-    :alt="article.files[0]?.name"
+    v-if="article.fileArrayBase64?.length > 0"
+    :src="article.fileArrayBase64[0]"
+    :alt="`${article.fileArrayBase64[0]}-illustration`"
   >
+
   <div class="leading-8 text-justify indent-8">
     <Markdown :source="article.content" />
   </div>

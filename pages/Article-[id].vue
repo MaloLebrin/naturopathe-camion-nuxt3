@@ -7,6 +7,7 @@
     <ArrowCircleLeftIconOutline class="w-6 h-6 text-gray-700" />
     <span>Retour</span>
   </NuxtLink>
+
   <transition name="fade">
     <div class="flex items-center mx-auto">
       <div
@@ -21,6 +22,7 @@
             :category="articleCategory"
           />
         </template>
+
         <template
           v-else
         >
