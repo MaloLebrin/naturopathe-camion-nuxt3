@@ -194,9 +194,9 @@ const schema = object({
 })
 
 const initialValue = {
-  title: props.article?.title || 'f',
-  content: props.article?.content || 'f',
-  description: props.article?.description || 'f',
+  title: props.article?.title || '',
+  content: props.article?.content || '',
+  description: props.article?.description || '',
   instaUrl: props.article?.instaUrl || null,
   facebookUrl: props.article?.facebookUrl || null,
   categoryId: props.article?.categoryId || null,
@@ -212,6 +212,7 @@ async function onSubmit(form: IForm) {
       ...form,
       fileArrayBase64: await fileArrayToBase64(form.files as unknown as File[]),
     }
+    delete payload.files
     
     if (props.article) {
       const articleToPatch = {

@@ -47,7 +47,7 @@
     :alt="`${article.fileArrayBase64[0]}-illustration`"
   >
 
-  <div class="leading-8 text-justify indent-8">
+  <div class="overflow-hidden leading-8 text-justify indent-8">
     <Markdown :source="article.content" />
   </div>
 </article>
