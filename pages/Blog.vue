@@ -8,7 +8,7 @@
       <BaseLoader
         v-if="$userStore().isLoading"
       />
-      <BaseMessage v-else-if="!$userStore().isLoading && $blogStore().getPublishedArticlesArray.length === 0">
+      <BaseMessage v-else-if="!$userStore().isLoading && $blogStore().getPublishedArticlesArray?.length === 0">
         Désolé nous n'avons pas envore publié d'articles
       </BaseMessage>
       <template v-else>
@@ -24,9 +24,9 @@
             class="grid max-w-4xl grid-cols-1 gap-6 px-8 py-6 bg-white rounded-lg shadow-md cursor-pointer md:grid-cols-3"
           >
             <img
-              v-if="firstArticle?.files.length > 0"
+              v-if="firstArticle?.fileArrayBase64?.length > 0"
               class="hidden col-span-2 rounded-md md:block"
-              :src="firstArticle?.files[0].secure_url"
+              :src="firstArticle?.fileArrayBase64[0]"
               :alt="firstArticle.title"
             >
             <div class="space-y-4">

@@ -8,7 +8,7 @@ export const useBlogStore = defineStore('Blog', {
   }),
   getters: {
     getArticlesArray: state => state.articles,
-    getPublishedArticlesArray: state => state.articles.filter(article => article.published),
+    getPublishedArticlesArray: state => state.articles.filter(article => article.isPublished),
     isArticleAlreadyStored: state => {
       return (id: number) => state.articles.find(article => article.id === id) !== undefined
     },

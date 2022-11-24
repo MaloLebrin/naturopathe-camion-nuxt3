@@ -10,20 +10,20 @@
     v-if="article"
     class="px-8 py-6 space-y-4 bg-white rounded-lg shadow-md cursor-pointer"
   >
-    <template v-if="article.isInstaPost && article.files?.length > 0">
+    <template v-if="article.isInstaPost && article.fileArrayBase64?.length > 0">
       <Carousel
         :items-to-show="1"
         :wrap-around="true"
         :autoplay="2000"
       >
         <Slide
-          v-for="image in article.files"
-          :key="image.id"
+          v-for="(str, index) in article.fileArrayBase64"
+          :key="index"
         >
           <img
             class="hidden col-span-2 rounded-md md:block"
-            :src="image.secure_url"
-            :alt="article.title"
+            :src="str"
+            :alt="`${article.title}-${index}`"
           >
         </Slide>
         <template #addons>
@@ -31,14 +31,16 @@
         </template>
       </Carousel>
     </template>
+
     <template v-else>
       <img
-        v-if="article.files && article.files.length > 0"
+        v-if="article.fileArrayBase64 && article.fileArrayBase64.length > 0"
         class="hidden col-span-2 rounded-md md:block"
-        :src="article.files[0]?.secure_url"
-        :alt="article.title"
+        :src="article.fileArrayBase64[0]"
+        :alt="`${article.title}-0`"
       >
     </template>
+
     <div class="space-y-4">
       <div class="space-x-4">
         <CategoryTag
