@@ -1,7 +1,11 @@
 <template>
-<div class="bottom-0 right-0 z-10 items-center hidden px-10 py-4 bg-white md:flex md:fixed h-30 rounded-tl-xl opacity-80">
+<div
+  id="menu-bottom"
+  class="bottom-0 right-0 z-10 items-center hidden px-10 py-4 bg-white md:flex md:fixed h-30 rounded-tl-xl opacity-80"
+>
   <NuxtLink
     v-for="(page, index) in menuItems"
+    :id="page.name"
     :key="index"
     v-slot="{ isActive }"
     :to="page.path"
@@ -78,20 +82,19 @@
 </template>
 
 <script setup lang="ts">
-import { pages } from '../helpers/pages'
 import {
   Menu,
   MenuButton,
   MenuItem,
-  MenuItems
+  MenuItems,
 } from '@headlessui/vue'
 
 import {
+  Bars3Icon,
   MapPinIcon,
   TruckIcon,
-  Bars3Icon,
 } from '@heroicons/vue/24/outline'
-
+import { pages } from '../helpers/pages'
 
 const menuItems = pages.filter(item => !item.isAdmin)
 </script>

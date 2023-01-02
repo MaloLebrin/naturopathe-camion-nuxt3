@@ -76,12 +76,11 @@ import {
   CogIcon,
   CubeIcon,
   TruckIcon,
-  UserCircleIcon
+  UserCircleIcon,
 } from '@heroicons/vue/24/outline'
 
-
 useHead({
-  title: `Naturopathe-Camion | A propos`,
+  title: 'Naturopathe-Camion | A propos',
   meta: [
     { name: 'description', content: 'Naturopathe formée à ISUPNAT certifiée FENA, Masseuse bien-être' },
     { name: 'keywords', content: 'naturopathie, naturopathy, ISUPNAT certifiée, FENA, Masseuse, bien-être' },
