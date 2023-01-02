@@ -1,8 +1,9 @@
 export default defineNuxtRouteMiddleware((to, from) => {
   if (to.name !== 'Admin') {
-    const { $userStore, $isTestMode } = useNuxtApp()
+    const { $userStore } = useNuxtApp()
 
-    console.log($isTestMode, '<==== $isTestMode')
+    console.log(import.meta.env, '<==== import.meta.env')
+
     if (to.meta.isAuth && !$userStore().getIsLoggedIn) {
       return navigateTo({
         name: 'Admin',

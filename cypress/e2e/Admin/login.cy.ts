@@ -1,8 +1,6 @@
 describe('Login spec', () => {
   beforeEach(() => {
     const url = Cypress.env('FRONT_URL')
-    console.log(Cypress.env(), '<==== Cypress.env()')
-
     cy.visit(`${url}admin/articles`)
   })
 
