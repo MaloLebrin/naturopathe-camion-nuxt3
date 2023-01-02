@@ -55,8 +55,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - run: echo ${{ secrets.SUPABASE_URL }}
-
       - name: Cypress run
         uses: cypress-io/github-action@v5
         env:
