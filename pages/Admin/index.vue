@@ -52,7 +52,7 @@ import { Form } from 'vee-validate'
 import type { SchemaOf } from 'yup'
 import { object, string } from 'yup'
 import { useUserStore } from '~~/store/userStore'
-import type { SessionSupabase, User, UserSupabase } from '~~/types'
+import type { SessionSupabase, UserSupabase } from '~~/types'
 
 definePageMeta({
   layout: 'admin',
@@ -74,8 +74,8 @@ const schema: SchemaOf<FormShape> = object({
 })
 
 const form = reactive<FormShape>({
-  email: 'malolebrin@gmail.com',
-  password: 'c2BhhMk?48+BDt9q',
+  email: '',
+  password: '',
 })
 
 async function onSubmit() {
@@ -90,7 +90,7 @@ async function onSubmit() {
     console.error(error, '<==== error')
   }
 
-  if (data) {    
+  if (data) {
     setCurrentUser(data.user as unknown as UserSupabase)
     setCurrentSession(data.session as unknown as SessionSupabase)
     router.push({ name: 'Admin-articles' })
@@ -99,7 +99,7 @@ async function onSubmit() {
 }
 
 useHead({
-  title: `Naturopathe-Camion | CMS Articles`,
+  title: 'Naturopathe-Camion | CMS Articles',
   meta: [
     { name: 'description', content: 'Administration de gestion des articles' },
   ],

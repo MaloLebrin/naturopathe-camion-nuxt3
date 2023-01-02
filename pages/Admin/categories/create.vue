@@ -7,13 +7,13 @@
 <script setup lang="ts">
 definePageMeta({
   middleware: [
-    'nav-guard-middleware'
+    'nav-guard-middleware',
   ],
   layout: 'admin',
   isAuth: true,
 })
 
 useHead({
-  title: `Naturopathe-Camion Blog | Créer une catégorie`,
+  title: 'Naturopathe-Camion Blog | Créer une catégorie',
 })
 </script>

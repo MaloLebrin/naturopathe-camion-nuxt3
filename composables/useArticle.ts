@@ -4,6 +4,7 @@ import type { Article, ArticlePayload } from '~~/types'
 export default function useArticle() {
   const { createManyArticles, deleteOneArticle } = useBlogStore()
   const { IncLoading, DecLoading } = useUserStore()
+  const { $isTestMode } = useNuxtApp()
 
   async function getAll() {
     IncLoading()
@@ -24,9 +25,12 @@ export default function useArticle() {
   }
 
   async function postOne(article: ArticlePayload): Promise<Article | null> {
-    const { data } = await $fetch(`/api/article/create`, {
+    const { data } = await $fetch('/api/article/create', {
       method: 'post',
-      body: article,
+      body: {
+        ...article,
+        isTest: $isTestMode,
+      },
     })
     if (data?.length > 0) {
       const articles = formatedArticles(data)
@@ -39,7 +43,7 @@ export default function useArticle() {
   async function deleteOne(id: number) {
     IncLoading()
     await $fetch(`/api/article/${id}`, {
-      method: 'delete'
+      method: 'delete',
     })
     deleteOneArticle(id)
     DecLoading()
@@ -51,6 +55,7 @@ export default function useArticle() {
       method: 'put',
       body: {
         ...article,
+        isTest: $isTestMode,
       },
     })
     if (data?.length > 0) {
