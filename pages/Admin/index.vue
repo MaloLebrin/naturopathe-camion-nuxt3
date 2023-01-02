@@ -59,8 +59,6 @@ definePageMeta({
   isAuth: true,
 })
 
-const { $isTestMode } = useNuxtApp()
-console.log($isTestMode, '<==== $isTestMode')
 const { IncLoading, DecLoading, setCurrentUser, setCurrentSession } = useUserStore()
 const router = useRouter()
 

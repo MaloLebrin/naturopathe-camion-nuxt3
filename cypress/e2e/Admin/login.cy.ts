@@ -3,7 +3,7 @@ describe('Login spec', () => {
     const url = Cypress.env('FRONT_URL')
     console.log(Cypress.env(), '<==== Cypress.env()')
 
-    cy.visit(`${url}admin`)
+    cy.visit(`${url}admin/articles`)
   })
 
   it('button to submit form login is disabled by default', () => {
@@ -16,13 +16,16 @@ describe('Login spec', () => {
     cy.get('button[type=submit]').should('be.disabled')
 
     cy.get('#email').should('exist')
-    cy.get('#email').type(Cypress.env('TEST_USER'))
-    cy.get('#email').should('have.value', Cypress.env('TEST_USER'))
+    cy.get('#email').type('malolebrin@icloud.com')
+    cy.get('#email').should('have.value', 'malolebrin@icloud.com')
 
     cy.get('#password').should('exist')
-    cy.get('#password').type(Cypress.env('TEST_PASSWORD'))
-    cy.get('#password').should('have.value', Cypress.env('TEST_PASSWORD'))
+    cy.get('#password').type('22Fv&4er*8EzTNuX!bP')
+    cy.get('#password').should('have.value', '22Fv&4er*8EzTNuX!bP')
 
     cy.get('button[type=submit]').should('be.enabled')
+    cy.get('button[type=submit]').click()
+
+    cy.get('h1').contains('Liste des articles')
   })
 })
