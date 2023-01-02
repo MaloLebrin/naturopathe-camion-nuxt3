@@ -14,6 +14,7 @@ env:
   CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
   FRONT_URL: ${{ secrets.FRONT_URL }}
   DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  TEST_MODE: ${{ secrets.TEST_MODE }}
 
 jobs:
   test:
@@ -67,6 +68,7 @@ jobs:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           FRONT_URL: ${{ secrets.FRONT_URL }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TEST_MODE: ${{ secrets.TEST_MODE }}
 
         with:
           build: yarn build

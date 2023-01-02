@@ -16,7 +16,7 @@
         v-model="form.email"
         label="Adresse email"
         name="email"
-        type="email"
+        :type="$isTestMode ? 'password' : 'email'"
         autocomplete="email"
         required="required"
         :error="errors.email"
@@ -59,9 +59,10 @@ definePageMeta({
   isAuth: true,
 })
 
+const { $isTestMode } = useNuxtApp()
+console.log($isTestMode, '<==== $isTestMode')
 const { IncLoading, DecLoading, setCurrentUser, setCurrentSession } = useUserStore()
 const router = useRouter()
-// console.log(router.getRoutes(), 'router.getRoutes()')
 
 interface FormShape {
   email: string
@@ -91,6 +92,8 @@ async function onSubmit() {
   }
 
   if (data) {
+    // const cookieToken = useCookie('naturopatheCamionToken')
+    // cookieToken.value = data.session?.access_token
     setCurrentUser(data.user as unknown as UserSupabase)
     setCurrentSession(data.session as unknown as SessionSupabase)
     router.push({ name: 'Admin-articles' })
