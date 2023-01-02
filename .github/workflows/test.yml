@@ -5,6 +5,15 @@ on:
 
 env:
   NODE_ENV: prod
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+  SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+  SUPABASE_JWT: ${{ secrets.SUPABASE_JWT }}
+  CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+  CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+  CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+  FRONT_URL: ${{ secrets.FRONT_URL }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   test:
