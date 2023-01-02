@@ -48,6 +48,16 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SUPABASE_JWT: ${{ secrets.SUPABASE_JWT }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
         with:
           build: yarn build
           start: yarn runHeaded  
