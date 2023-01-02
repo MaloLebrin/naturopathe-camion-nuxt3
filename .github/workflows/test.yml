@@ -56,7 +56,9 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          FRONT_URL: ${{ secrets.FRONT_URL }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: echo ${{ secrets.FRONT_URL }}
 
         with:
           build: yarn build
