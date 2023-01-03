@@ -14,12 +14,12 @@ describe('Login spec', () => {
     cy.get('button[type=submit]').should('be.disabled')
 
     cy.get('#email').should('exist')
-    cy.get('#email').type('malolebrin@icloud.com')
-    cy.get('#email').should('have.value', 'malolebrin@icloud.com')
+    cy.get('#email').type('elisaneaud08@gmail.com')
+    cy.get('#email').should('have.value', 'elisaneaud08@gmail.com')
 
     cy.get('#password').should('exist')
-    cy.get('#password').type('22Fv&4er*8EzTNuX!bP')
-    cy.get('#password').should('have.value', '22Fv&4er*8EzTNuX!bP')
+    cy.get('#password').type('c2BhhMk?48+BDt9q')
+    cy.get('#password').should('have.value', 'c2BhhMk?48+BDt9q')
 
     cy.get('button[type=submit]').should('be.enabled')
     cy.get('button[type=submit]').click()

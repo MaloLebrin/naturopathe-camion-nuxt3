@@ -7,7 +7,10 @@
     {{ article.title }}
   </td>
   <td class="px-3 py-4 text-sm text-gray-500 truncate whitespace-nowrap">
-    <ArticleStatusTag :is-published="article.isPublished" />
+    <ArticleStatusTag
+      :id="`article-status-tag-${article.id}`"
+      :is-published="article.isPublished"
+    />
   </td>
   <td class="px-3 py-4 text-sm text-gray-500 truncate whitespace-nowrap">
     {{ category?.name }}

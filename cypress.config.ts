@@ -12,6 +12,7 @@ export default defineConfig({
     video: false,
     screenshotOnRunFailure: false,
     screenshotsFolder: false,
+    taskTimeout: 10000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
       config.env = {
