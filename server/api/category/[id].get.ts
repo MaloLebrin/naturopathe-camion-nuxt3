@@ -1,7 +1,12 @@
 import { serverSupabaseServiceRole } from '#supabase/server'
-import { FileType } from '~~/types'
+import type { Category } from '~~/types'
 
 export default defineEventHandler(async event => {
-  const client = serverSupabaseServiceRole<FileType>(event)
-  return client.from('File').select().eq('id', event.context.params.id)
+  const client = serverSupabaseServiceRole<Category>(event)
+
+  if (process.env.TEST_MODE === 'true') {
+    return client.from('Category').select().eq('id', event.context.params.id)
+  }
+
+  return client.from('Category').select().eq('id', event.context.params.id).eq('isTest', false)
 })

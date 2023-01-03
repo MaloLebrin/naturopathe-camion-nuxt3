@@ -1,5 +1,6 @@
 <template>
 <button
+  :id="id"
   class="relative flex justify-center item-center sm:col-start-3"
   @click="sendEvent"
 >
@@ -18,6 +19,7 @@
 <script setup lang="ts">
 interface Props {
   isPublished: boolean
+  id: string
 }
 
 const props = defineProps<Props>()

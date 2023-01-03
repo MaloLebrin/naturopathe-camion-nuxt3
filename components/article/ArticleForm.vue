@@ -119,22 +119,25 @@
   </template>
   <template v-else>
     <FieldArray
-        key-path="id"
-        name="files"
-      >
-  
-    <BasePictureInput
-      label="Image de l'article"
-      name="files[0]"
-      wrapper-classes="col-span-1 md:col-span-2"
-      :initial-url="values?.files && values.files[0] ? values.files[0]?.url : null"
-      class="col-span-2"
-      is-required
-    />
+      key-path="id"
+      name="files"
+    >
+      <BasePictureInput
+        label="Image de l'article"
+        data-cy="fields-array-input-files"
+        name="files[0]"
+        wrapper-classes="col-span-1 md:col-span-2"
+        :initial-url="values?.files && values.files[0] ? values.files[0]?.url : null"
+        class="col-span-2"
+        is-required
+      />
     </FieldArray>
   </template>
 
-  <div v-if="isDebug" class="flex-col items-center justify-center pt-5 md:col-span-2">
+  <div
+    v-if="isDebug"
+    class="flex-col items-center justify-center pt-5 md:col-span-2"
+  >
     <p>valid: {{ meta.valid }}</p>
     <p>dirty: {{ meta.dirty }}</p>
     <p>error: {{ errors }}</p>
@@ -207,13 +210,12 @@ const initialValue = {
 async function onSubmit(form: IForm) {
   IncLoading()
   try {
-
     const payload: ArticlePayload = {
       ...form,
       fileArrayBase64: await fileArrayToBase64(form.files as unknown as File[]),
     }
     delete payload.files
-    
+
     if (props.article) {
       const articleToPatch = {
         ...props.article,

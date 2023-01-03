@@ -16,6 +16,7 @@
   <td class="relative flex items-center justify-center py-4 pl-3 pr-4 space-x-2 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
     <BaseButton
       tag="nuxt-link"
+      data-cy="link-update-category"
       :to="{
         name: 'Admin-categories-edit-id',
         params: { id: category.id },
@@ -26,6 +27,7 @@
     </BaseButton>
     <BaseButton
       color="red"
+      data-cy="link-delete-category"
       @click="deleteCategory"
     >
       Supprimer

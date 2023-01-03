@@ -5,13 +5,23 @@ on:
 
 env:
   NODE_ENV: prod
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+  SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+  SUPABASE_JWT: ${{ secrets.SUPABASE_JWT }}
+  CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+  CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+  CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+  FRONT_URL: ${{ secrets.FRONT_URL }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  TEST_MODE: ${{ secrets.TEST_MODE }}
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: [14.x, 16.x]
+        node: [16.x, 18.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
 
@@ -36,3 +46,30 @@ jobs:
 
       - name: 🏗 Build & type checking
         run: nr build
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SUPABASE_JWT: ${{ secrets.SUPABASE_JWT }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          FRONT_URL: ${{ secrets.FRONT_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TEST_MODE: ${{ secrets.TEST_MODE }}
+
+        with:
+          build: yarn build
+          start: yarn runHeaded  

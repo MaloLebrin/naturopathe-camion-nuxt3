@@ -1,5 +1,8 @@
 <template>
-<BaseModal :is-active="isDeleteConfirmModalActive">
+<BaseModal
+  data-cy="confirm-delete-modal"
+  :is-active="isDeleteConfirmModalActive"
+>
   <div class="px-6 py-2 space-y-6">
     <h5 class="text-xl text-center text-red-500">
       Voulez vous Supprimer ?
@@ -20,11 +23,15 @@
       <p>Attention toute suppression est définitive</p>
     </BaseMessage>
     <div class="flex items-center justify-center space-x-4">
-      <BaseButton @click="$userStore().resetModalState">
+      <BaseButton
+        data-cy="cancel-delete-button"
+        @click="$userStore().resetModalState"
+      >
         Annuler
       </BaseButton>
       <BaseButton
         color="red"
+        data-cy="confirm-delete-button"
         @click="deleteConfirm"
       >
         Supprimer

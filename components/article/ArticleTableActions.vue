@@ -5,6 +5,7 @@
 >
   <div>
     <MenuButton
+      :data-cy="`actions-button-article-${article.id}`"
       class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-purple-500 bg-purple-300 border border-purple-500 rounded-md bg-opacity-20 hover:bg-opacity-40 hover:text-purple-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
     >
       Actions
@@ -31,6 +32,7 @@
         <div class="px-1 py-1">
           <MenuItem v-slot="{ active }">
             <NuxtLink
+              :data-cy="`update-article-link-${article.id}`"
               class="flex items-center w-full px-2 py-2 text-sm rounded-md cursor-pointer group"
               :class="[
                 active ? 'bg-purple-100 text-purple-800' : 'text-gray-900',
@@ -60,13 +62,14 @@
         >
           <button
             class="flex items-center w-full px-2 py-2 text-sm rounded-md group"
+            :data-cy="`update-status-article-button-${article.id}`"
             :class="[
               article.isPublished ? 'text-green-500' : 'text-red-500',
               active ? 'bg-red-100 text-red-800' : 'text-gray-900',
             ]"
             :disabled="$userStore().isLoading"
             @click="submit()"
-            >
+          >
             <CheckCircleIcon
               v-if="article.isPublished"
               :active="active"
@@ -86,6 +89,7 @@
           <MenuItem v-slot="{ active }">
             <button
               class="flex items-center w-full px-2 py-2 text-sm rounded-md group"
+              :data-cy="`delete-article-button-${article.id}`"
               :class="[
                 active ? 'bg-red-100 text-red-800' : 'text-gray-900',
               ]"
@@ -118,7 +122,7 @@ import {
   Menu,
   MenuButton,
   MenuItem,
-  MenuItems
+  MenuItems,
 } from '@headlessui/vue'
 import { CheckCircleIcon, ChevronDownIcon, PencilIcon, TrashIcon, XCircleIcon } from '@heroicons/vue/24/outline'
 import { useUserStore } from '~~/store'
@@ -137,12 +141,11 @@ const { setModalState } = userStore
 async function submit() {
   const payload = {
     ...props.article,
-    isPublished: props.article.isPublished ? false : true,
+    isPublished: !props.article.isPublished,
     publishedAt: props.article.isPublished ? null : new Date(),
   }
 
   await patchOne(props.article.id, payload)
-
 }
 
 function deleteConfirm() {

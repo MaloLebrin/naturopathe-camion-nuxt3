@@ -1,9 +1,10 @@
 import { useBlogStore, useUserStore } from '~~/store'
-import type { Category, CategoryPayload } from '~~/types'
+import type { CategoryPayload } from '~~/types'
 
 export default function useCategory() {
-  const { createManyCategories, createOneCategory, deleteOneCategory } = useBlogStore()
+  const { createManyCategories, deleteOneCategory } = useBlogStore()
   const { IncLoading, DecLoading } = useUserStore()
+  const { $isTestMode } = useNuxtApp()
 
   async function getAll() {
     IncLoading()
@@ -26,9 +27,12 @@ export default function useCategory() {
 
   async function postOne(newCategory: CategoryPayload) {
     IncLoading()
-    const { data } = await $fetch(`/api/category/create`, {
+    const { data } = await $fetch('/api/category/create', {
       method: 'post',
-      body: newCategory,
+      body: {
+        ...newCategory,
+        isTest: $isTestMode,
+      },
     })
     if (data?.length > 0) {
       createManyCategories(data)
@@ -38,10 +42,13 @@ export default function useCategory() {
 
   async function patchOne(id: number, newCategory: CategoryPayload) {
     IncLoading()
-    console.log(newCategory, '<==== newCategory')
+
     const { data } = await $fetch(`/api/category/${id}`, {
       method: 'put',
-      body: newCategory,
+      body: {
+        ...newCategory,
+        isTest: $isTestMode,
+      },
     })
     if (data?.length > 0) {
       createManyCategories(data)
@@ -52,7 +59,7 @@ export default function useCategory() {
   async function deleteOne(id: number) {
     IncLoading()
     await $fetch(`/api/category/${id}`, {
-      method: 'delete'
+      method: 'delete',
     })
     deleteOneCategory(id)
     DecLoading()

@@ -5,6 +5,7 @@
   as="template"
 >
   <li
+    :data-cy="`option-${value}`"
     class="relative px-4 py-2 cursor-pointer select-none text-blueDark"
     :class="[
       active ? 'bg-gray-200' : '',

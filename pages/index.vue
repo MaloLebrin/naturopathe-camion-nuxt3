@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: `Naturopathe-Camion | Accueil`,
+  title: 'Naturopathe-Camion | Accueil',
   meta: [
     { name: 'description', content: 'Faire de sa santé un mode de vie' },
     { name: 'keywords', content: 'naturopathie, naturopathy, mindefullness, bien être, alimentation, force vitale' },
