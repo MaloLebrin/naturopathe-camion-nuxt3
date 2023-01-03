@@ -16,7 +16,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",
     "@headlessui/vue": "^1.7.4",
-    "@nuxtjs/supabase": "^0.2.3",
+    "@nuxtjs/supabase": "^0.3.0",
     "autoprefixer": "^10.4.13",
     "cypress": "^12.2.0",
     "eslint": "^8.26.0",
