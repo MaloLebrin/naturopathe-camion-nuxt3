@@ -68,6 +68,7 @@
               <NuxtLink
                 v-for="item in navigation"
                 :key="item.name"
+                :data-cy="`admin-navigation-${item.name}`"
                 :to="{ name: item.path }"
                 class="flex items-center px-2 py-2 text-base font-medium rounded-md group"
                 :class="[isCurrentPage(item.path).value ? 'bg-brown text-white' : 'text-blueDark', $userStore().getIsLoggedIn ? 'cursor-pointer' : 'cursor-not-allowed']"
@@ -83,6 +84,7 @@
               </NuxtLink>
               <NuxtLink
                 :to="{ name: 'Admin' }"
+                data-cy="logout-button"
                 class="flex items-center px-2 py-2 text-sm font-medium rounded-md group"
                 :disabled="!$userStore().getIsLoggedIn"
                 @click="removeCurrent"
@@ -125,6 +127,7 @@
         <NuxtLink
           v-for="item in navigation"
           :key="item.name"
+          :data-cy="item.path"
           :to="{ name: item.path }"
           class="flex items-center px-2 py-2 text-sm font-medium rounded-md group"
           :class="[isCurrentPage(item.path).value ? 'bg-brown text-white' : 'text-blueDark', $userStore().getIsLoggedIn ? 'cursor-pointer' : 'cursor-not-allowed']"
@@ -140,6 +143,7 @@
         </NuxtLink>
         <NuxtLink
           :to="{ name: 'Admin' }"
+          data-cy="logout-button"
           class="flex items-center px-2 py-2 text-sm font-medium rounded-md group"
           :disabled="!$userStore().getIsLoggedIn"
           @click="removeCurrent"
@@ -158,18 +162,18 @@
 
 <script setup lang="ts">
 import {
+  ArrowRightOnRectangleIcon,
   NewspaperIcon,
   PlusCircleIcon,
   TagIcon,
-  ArrowRightOnRectangleIcon,
   XCircleIcon,
 } from '@heroicons/vue/24/outline'
 
 import {
   Dialog,
+  DialogPanel,
   TransitionChild,
   TransitionRoot,
-  DialogPanel,
 } from '@headlessui/vue'
 import { useUserStore } from '~~/store'
 
