@@ -37,7 +37,7 @@ describe('Login spec', () => {
     cy.dataCy('Admin-categories-create').should('exist')
   })
 
-  it('Correct liks on menu', () => {
+  it('creation article form', () => {
     cy.dataCy('Admin-articles-create').should('exist')
     cy.dataCy('Admin-articles-create').click()
 

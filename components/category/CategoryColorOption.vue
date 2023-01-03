@@ -5,6 +5,7 @@
   as="template"
 >
   <li
+    :data-cy="`option-${value}`"
     class="relative px-4 py-2 cursor-pointer select-none"
     :class="[
       color ? `bg-${color} text-white` : `bg-${name}-500`,
@@ -38,7 +39,6 @@ import {
 import {
   ListboxOption,
 } from '@headlessui/vue'
-
 
 interface Props {
   value: any
