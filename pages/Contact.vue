@@ -61,12 +61,12 @@
 
 <script setup lang="ts">
 import {
-  PhoneArrowUpRightIcon,
   EnvelopeIcon,
+  PhoneArrowUpRightIcon,
 } from '@heroicons/vue/24/outline'
 
 useHead({
-  title: `Naturopathe-Camion | Contact`,
+  title: 'Naturopathe-Camion | Contact',
   meta: [
     { name: 'description', content: 'Pour prendre rendez vous n\'hésitez pas à nous contacter' },
     { name: 'keywords', content: 'naturopathie, naturopathy, mindefullness, bien être, alimentation, gestion du poids' },

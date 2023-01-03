@@ -144,15 +144,15 @@ import {
   CalendarDaysIcon,
   ClockIcon,
   MinusIcon,
-  SwatchIcon,
   PlusCircleIcon,
+  SwatchIcon,
 } from '@heroicons/vue/24/outline'
 
 useHead({
-  title: `Naturopathe-Camion | Tarifs`,
+  title: 'Naturopathe-Camion | Tarifs',
   meta: [
     { name: 'description', content: 'Consultez nos tarifs et choisissez votre formule adaptée à vos besoins' },
-    { name: 'keywords', content: 'naturopathie, naturopathy, mindefullness, bien être, alimentation, gestion du poids'},
+    { name: 'keywords', content: 'naturopathie, naturopathy, mindefullness, bien être, alimentation, gestion du poids' },
   ],
 })
 </script>

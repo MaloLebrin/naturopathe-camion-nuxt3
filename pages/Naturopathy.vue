@@ -99,11 +99,11 @@ import {
   ChatBubbleBottomCenterTextIcon,
   MapPinIcon,
   MinusIcon,
-  TruckIcon
+  TruckIcon,
 } from '@heroicons/vue/24/outline'
 
 useHead({
-  title: `Naturopathe-Camion | Présentation`,
+  title: 'Naturopathe-Camion | Présentation',
   meta: [
     { name: 'description', content: 'Pour améliorer votre qualité de vie, votre santé, vos performances physiques, pour des questions de gestion du poids, du stress, du sommeil, acné, problèmes articulaires, cardio-vasculaires, digestifs, la liste est longue !' },
     { name: 'keywords', content: 'naturopathie, qualité de vie, bien être, alimentation, gestion du poids, performances physiques' },

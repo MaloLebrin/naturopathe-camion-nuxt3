@@ -79,7 +79,7 @@ definePageMeta({
 })
 
 useHead({
-  title: `Naturopathe-Camion | Blog`,
+  title: 'Naturopathe-Camion | Blog',
   meta: [
     { name: 'description', content: 'Liste des articles' },
     { name: 'keywords', content: 'naturopathie, naturopathy, blog, bien être, alimentation, force vitale' },

@@ -38,8 +38,8 @@
 </template>
 
 <script setup lang="ts">
-import { useBlogStore } from '~~/store'
 import { ArrowLeftCircleIcon } from '@heroicons/vue/24/outline'
+import { useBlogStore } from '~~/store'
 
 const blogStore = useBlogStore()
 const route = useRoute()

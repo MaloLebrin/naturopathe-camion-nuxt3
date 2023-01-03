@@ -5,7 +5,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "nuxt build && nuxt preview",
     "postinstall": "nuxt prepare",
     "cy:open": "cypress open",
     "cy:run": "cypress run",

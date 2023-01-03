@@ -25,4 +25,8 @@
 import {
   HomeIcon,
 } from '@heroicons/vue/24/outline'
+
+useHead({
+  title: 'Naturopathe-Camion | 404 page non trouvée',
+})
 </script>
