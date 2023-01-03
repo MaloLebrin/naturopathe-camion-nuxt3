@@ -54,9 +54,13 @@ describe('Login spec', () => {
     cy.get('#description').type(article.description)
     cy.get('#description').should('have.value', article.description)
 
-    // cy.get('#categoryId').should('exist')
-    // cy.get('#categoryId').type(article.categoryId.toString())
-    // cy.get('#categoryId').should('have.value', article.categoryId)
+    cy.get('#categoryId').should('exist')
+    cy.get('#categoryId').within(() => {
+      cy.dataCy('select-button-categoryId').should('exist')
+      cy.dataCy('select-button-categoryId').click()
+      cy.dataCy('option-2').should('exist')
+      cy.dataCy('option-2').click()
+    })
 
     cy.get('#content').should('exist')
     cy.get('#content').type(article.content)
@@ -72,14 +76,6 @@ describe('Login spec', () => {
         lastModified: Date.now(),
       }, { force: true })
     })
-
-    // cy.dataCy('base-picture-files[0]-button').should('exist')
-
-    // cy.dataCy('base-picture-files[0]-button').selectFile({
-    //   contents: Cypress.Buffer.from('exemple-image.webp'),
-    //   fileName: 'exemple-image.webp',
-    //   lastModified: Date.now(),
-    // })
 
     cy.get('button[type=submit]').should('be.enabled')
     // cy.get('button[type=submit]').click()

@@ -1,5 +1,6 @@
 <template>
 <Listbox
+  :id="name"
   :model-value="inputValue"
   as="div"
   :name="name"
@@ -13,6 +14,7 @@
   </ListboxLabel>
   <div class="relative">
     <ListboxButton
+      :data-cy="`select-button-${name}`"
       class="relative w-full px-6 py-4 text-left placeholder-gray-400 bg-white border rounded-md shadow focus:ring-pink-400 focus:border-pink-400 focus:outline-none disabled:bg-gray-100 disabled:border-gray-400"
       :class="[
         getBorderClasses(),
@@ -72,10 +74,10 @@
 <script lang="ts" setup>
 import {
   Listbox,
-  ListboxOption,
-  ListboxOptions,
   ListboxButton,
   ListboxLabel,
+  ListboxOption,
+  ListboxOptions,
 } from '@headlessui/vue'
 import {
   CheckCircleIcon, ChevronUpDownIcon,
