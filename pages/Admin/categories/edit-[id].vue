@@ -16,7 +16,7 @@ const category = computed(() => blogStore.getOneCategory(categoryId.value))
 definePageMeta({
   middleware: [
     'nav-guard-middleware',
-    'category-middleware'
+    'category-middleware',
   ],
   layout: 'admin',
   isAuth: true,
