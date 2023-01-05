@@ -1,14 +1,5 @@
 export default defineNuxtConfig({
   build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-
     transpile: [
       '@heroicons/vue',
       '@headlessui/vue',
@@ -16,11 +7,23 @@ export default defineNuxtConfig({
   },
 
   buildModules: [
-    // '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
+    {
+      autoImports: [
+        // automatically imports `usePinia()`
+        'defineStore',
+        // automatically imports `usePinia()` as `usePiniaStore()`
+        ['defineStore', 'definePiniaStore'],
+      ],
+    },
   ],
 
-  modules: ['@nuxtjs/supabase'],
+  modules: [
+    '@pinia/nuxt',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase',
+  ],
 
   css: [
     '@/assets/css/main.css',

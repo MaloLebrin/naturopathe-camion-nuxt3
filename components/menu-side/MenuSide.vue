@@ -30,7 +30,7 @@
       >naturopathe.elisa@gmail.com</a>
     </div>
     <div
-      v-if="$userStore().getCurrentUserToken && $userStore().getCurrent && $userStore().isLoggedIn"
+      v-if="userStore.getCurrentUserToken && userStore.getCurrent && userStore.isLoggedIn"
       class="flex items-center justify-center space-x-4"
     >
       <BaseButton
@@ -77,7 +77,10 @@
 
 <script setup lang="ts">
 import {
+  EnvelopeIcon,
   PhoneArrowUpRightIcon,
-  EnvelopeIcon
 } from '@heroicons/vue/24/outline'
+import { useUserStore } from '~~/store'
+
+const userStore = useUserStore()
 </script>

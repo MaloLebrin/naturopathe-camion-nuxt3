@@ -40,7 +40,7 @@
       <BaseButton
         :disabled="!meta.valid"
         type="submit"
-        :loading="$userStore().isLoading"
+        :loading="userStore.isLoading"
       >
         Enregistrer
       </BaseButton>

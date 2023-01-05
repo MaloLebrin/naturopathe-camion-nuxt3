@@ -28,7 +28,7 @@
       as="div"
       class="absolute right-0 z-20 w-56 mt-2 overflow-visible origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
     >
-      <div v-if="!$userStore().isLoading">
+      <div v-if="!userStore.isLoading">
         <div class="px-1 py-1">
           <MenuItem v-slot="{ active }">
             <NuxtLink
@@ -37,7 +37,7 @@
               :class="[
                 active ? 'bg-purple-100 text-purple-800' : 'text-gray-900',
               ]"
-              :disabled="$userStore().isLoading"
+              :disabled="userStore.isLoading"
               :to="{
                 name: 'Admin-articles-edit-id',
                 params: {
@@ -67,7 +67,7 @@
               article.isPublished ? 'text-green-500' : 'text-red-500',
               active ? 'bg-red-100 text-red-800' : 'text-gray-900',
             ]"
-            :disabled="$userStore().isLoading"
+            :disabled="userStore.isLoading"
             @click="submit()"
           >
             <CheckCircleIcon
@@ -93,7 +93,7 @@
               :class="[
                 active ? 'bg-red-100 text-red-800' : 'text-gray-900',
               ]"
-              :disabled="$userStore().isLoading"
+              :disabled="userStore.isLoading"
               @click="deleteConfirm"
             >
               <TrashIcon

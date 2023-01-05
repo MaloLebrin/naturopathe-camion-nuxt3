@@ -25,7 +25,7 @@
     <div class="flex items-center justify-center space-x-4">
       <BaseButton
         data-cy="cancel-delete-button"
-        @click="$userStore().resetModalState"
+        @click="resetModalState"
       >
         Annuler
       </BaseButton>

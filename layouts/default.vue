@@ -7,11 +7,6 @@
 </main>
 </template>
 
-<!-- <script setup lang="ts">
-const { $getApiUrl } = useNuxtApp()
-console.log($getApiUrl(), 'getA$getApiUrl()')
-</script> -->
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Sirin+Stencil&display=swap');
 
