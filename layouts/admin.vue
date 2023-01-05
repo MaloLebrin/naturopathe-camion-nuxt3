@@ -7,7 +7,7 @@
       <button
         type="button"
         class="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
-        @click="$userStore().openDrawer()"
+        @click="userStore.openDrawer()"
       >
         <span class="sr-only">Open sidebar</span>
         <Bars3Icon
@@ -42,6 +42,9 @@
 import {
   Bars3Icon,
 } from '@heroicons/vue/24/outline'
+import { useUserStore } from '~~/store'
+
+const userStore = useUserStore()
 </script>
 
 <style>

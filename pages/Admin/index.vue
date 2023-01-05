@@ -36,7 +36,7 @@
         <BaseButton
           :disabled="!meta.valid || isSubmitting"
           type="submit"
-          :loading="isSubmitting || $userStore().isLoading"
+          :loading="isSubmitting || userStore.isLoading"
           @click.prevent="onSubmit"
         >
           Connexion
@@ -59,7 +59,8 @@ definePageMeta({
   isAuth: true,
 })
 
-const { IncLoading, DecLoading, setCurrentUser, setCurrentSession } = useUserStore()
+const userStore = useUserStore()
+const { IncLoading, DecLoading, setCurrentUser, setCurrentSession } = userStore
 const router = useRouter()
 
 interface FormShape {

@@ -44,7 +44,7 @@
     <div class="space-y-4">
       <div class="space-x-4">
         <CategoryTag
-          :category="$blogStore().getCategoryByArticleId(article.id)"
+          :category="blogStore.getCategoryByArticleId(article.id)"
         />
         <span class="text-sm font-medium text-gray-400"> {{ $toFormat(article.publishedAt, 'D MMMM YYYY') }} </span>
       </div>
@@ -63,6 +63,7 @@
 import { Carousel, Pagination, Slide } from 'vue3-carousel'
 import type { Article, Category } from '~~/types'
 import 'vue3-carousel/dist/carousel.css'
+import { useBlogStore } from '~~/store'
 
 interface Props {
   article: Article
@@ -70,6 +71,8 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const blogStore = useBlogStore()
 </script>
 
 <style>

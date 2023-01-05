@@ -6,9 +6,9 @@
         Le Blog
       </h1>
       <BaseLoader
-        v-if="$userStore().isLoading"
+        v-if="userStore.isLoading"
       />
-      <BaseMessage v-else-if="!$userStore().isLoading && $blogStore().getPublishedArticlesArray?.length === 0">
+      <BaseMessage v-else-if="!userStore.isLoading && blogStore.getPublishedArticlesArray?.length === 0">
         Désolé nous n'avons pas envore publié d'articles
       </BaseMessage>
       <template v-else>
@@ -32,7 +32,7 @@
             <div class="space-y-4">
               <div class="space-x-4">
                 <CategoryTag
-                  :category="$blogStore().getCategoryByArticleId(firstArticle.id)"
+                  :category="blogStore.getCategoryByArticleId(firstArticle.id)"
                 />
                 <span class="text-sm font-medium text-gray-400"> {{ $toFormat(firstArticle.publishedAt, 'D MMMM YYYY') }} </span>
               </div>
@@ -53,7 +53,7 @@
             v-for="(article) in restOfThem"
             :key="article.id"
             :article="article"
-            :category="$blogStore().getCategoryByArticleId(article.categoryId)"
+            :category="blogStore.getCategoryByArticleId(article.categoryId)"
           />
         </div>
       </template>
@@ -63,9 +63,10 @@
 </template>
 
 <script setup lang="ts">
-import { useBlogStore } from '~~/store'
+import { useBlogStore, useUserStore } from '~~/store'
 
 const blogStore = useBlogStore()
+const userStore = useUserStore()
 
 const firstArticle = computed(() => blogStore.getPublishedArticlesArray.length > 0 ? blogStore.getPublishedArticlesArray[0] : null)
 const restOfThem = computed(() => blogStore.getPublishedArticlesArray.length > 1 ? blogStore.getPublishedArticlesArray.filter((article, index) => index !== 0) : null)

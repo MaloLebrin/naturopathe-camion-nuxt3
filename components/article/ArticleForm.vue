@@ -48,17 +48,17 @@
     :error="errors.description"
   />
 
-  <template v-if="$blogStore().getCategoriesArray.length > 0">
+  <template v-if="blogStore.getCategoriesArray.length > 0">
     <BaseSelect
       label="Sélectionner une catégorie"
       name="categoryId"
       placeholder="Choisissez une catégorie"
-      :display-value="$blogStore().getOneCategory(values.categoryId)?.name"
+      :display-value="blogStore.getOneCategory(values.categoryId)?.name"
       is-required
       :error="errors.category"
     >
       <BaseOption
-        v-for="category in $blogStore().getCategoriesArray"
+        v-for="category in blogStore.getCategoriesArray"
         :key="category.id"
         :value="category.id"
         :name="category.name"
@@ -149,7 +149,7 @@
       <BaseButton
         :disabled="!meta.valid"
         type="submit"
-        :loading="$userStore().isLoading"
+        :loading="userStore.isLoading"
       >
         Enregistrer
       </BaseButton>
@@ -162,7 +162,7 @@
 import { FieldArray, Form } from 'vee-validate'
 import type { InferType } from 'yup'
 import { array, boolean, number, object, string } from 'yup'
-import { useUserStore } from '~~/store'
+import { useBlogStore, useUserStore } from '~~/store'
 import type { Article, ArticlePayload } from '~~/types'
 
 interface IForm extends InferType<typeof schema> {}
@@ -175,6 +175,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const userStore = useUserStore()
+const blogStore = useBlogStore()
 const { IncLoading, DecLoading } = userStore
 const { fileArrayToBase64 } = useFile()
 const { postOne, patchOne } = useArticle()
