@@ -80,6 +80,7 @@ const form = reactive<FormShape>({
 
 async function onSubmit() {
   IncLoading()
+  const { $toast } = useNuxtApp()
   const client = useSupabaseClient()
 
   const { data, error } = await client.auth.signInWithPassword({
@@ -88,11 +89,11 @@ async function onSubmit() {
   })
   if (error) {
     console.error(error, '<==== error')
+    $toast.error(error)
   }
 
   if (data) {
-    // const cookieToken = useCookie('naturopatheCamionToken')
-    // cookieToken.value = data.session?.access_token
+    $toast.success('Vous êtes bien connecté')
     setCurrentUser(data.user as unknown as UserSupabase)
     setCurrentSession(data.session as unknown as SessionSupabase)
     router.push({ name: 'Admin-articles' })
