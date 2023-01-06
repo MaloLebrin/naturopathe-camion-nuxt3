@@ -209,6 +209,7 @@ const initialValue = {
 }
 
 async function onSubmit(form: IForm) {
+  const { $toast } = useNuxtApp()
   IncLoading()
   try {
     const payload: ArticlePayload = {
