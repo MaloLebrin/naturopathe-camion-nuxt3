@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     transpile: [
       '@heroicons/vue',
       '@headlessui/vue',
+      'vue-toastification',
     ],
   },
 
