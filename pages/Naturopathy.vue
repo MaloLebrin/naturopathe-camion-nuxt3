@@ -156,5 +156,52 @@ const pathologies = [
       'sexualité',
     ],
   },
+  {
+    title: 'Troubles Circulatoire',
+    symptoms: [
+      'hypertension artérielle',
+      'anémie',
+      'hypotension',
+      'varices',
+      'hémoroïdes',
+      'troubles cardio-vasculaire',
+      'lypathiques',
+      'oedème',
+      'syndrôme de Reynaud',
+    ],
+  },
+  {
+    title: 'Troubles urinaires',
+    symptoms: [
+      'cystites recidivantes',
+      'lithias rénales',
+    ],
+  },
+  {
+    title: 'Troubles immunitaires',
+    symptoms: [
+      'pathologie auto-immunes',
+      'injections à répétitions',
+      'URL',
+    ],
+  },
+  {
+    title: 'Performances physiques',
+    symptoms: [
+      'objectifs sportifs',
+      'prise de masse musculaire',
+      'perte de poids',
+    ],
+  },
+  {
+    title: 'Accompagnement de la femme',
+    symptoms: [
+      'puberté',
+      'cycles',
+      'grossesse',
+      'post-partum',
+      'ménopause',
+    ],
+  },
 ]
 </script>
