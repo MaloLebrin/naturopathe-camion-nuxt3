@@ -96,5 +96,12 @@ import {
 } from '@heroicons/vue/24/outline'
 import { pages } from '../helpers/pages'
 
-const menuItems = pages.filter(item => !item.isAdmin)
+const { $isBlogEnable } = useNuxtApp()
+
+const menuItems = pages.filter(item => {
+  if ($isBlogEnable) {
+    return !item.isAdmin
+  }
+  return !item.isAdmin && item.name !== 'Blog'
+})
 </script>
