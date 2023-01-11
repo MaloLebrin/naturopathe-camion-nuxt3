@@ -8,14 +8,14 @@ export const pages = [
   },
   {
     name: 'Présentation',
-    path: '/Naturopathy',
+    path: '/Naturopathie',
     description: 'Pour améliorer votre qualité de vie, votre santé, vos performances physiques, pour des questions de gestion du poids, du stress, du sommeil, acné, problèmes articulaires, cardio-vasculaires, digestifs, la liste est longue !',
     keywords: 'naturopathie, qualité de vie, bien être, alimentation, gestion du poids, performances physiques',
     isAdmin: false,
   },
   {
-    name: 'Tarifs',
-    path: '/Pricing',
+    name: 'Soins',
+    path: '/soins',
     description: 'Consultez nos tarifs et choisissez votre formule adaptée à vos besoins',
     keywords: 'naturopathie, naturopathy, mindefullness, bien être, alimentation, gestion du poids',
     isAdmin: false,
@@ -29,7 +29,7 @@ export const pages = [
   },
   {
     name: 'A propos',
-    path: '/About',
+    path: '/A-propos',
     description: 'Naturopathe formée à ISUPNAT certifiée FENA, Masseuse bien-être',
     keywords: 'naturopathie, naturopathy, ISUPNAT certifiée, FENA, Masseuse, bien-être',
     isAdmin: false,
