@@ -1,7 +1,13 @@
 <template>
 <div class="flex items-center justify-center w-full min-h-screen py-8 mb-32">
   <transition name="fade">
-    <div class="relative max-w-4xl px-6 py-6 space-y-10 rounded-lg shadow-md animate-fade-in-down">
+    <div class="relative flex flex-col items-center justify-center max-w-4xl px-6 py-6 space-y-10 rounded-lg shadow-md animate-fade-in-down">
+      <img
+        src="/static/motif.svg"
+        class="h-12"
+        alt="illutration de titre"
+      >
+
       <div class="grid gap-4 space-x-8 md:grid-cols-3">
         <img
           class="w-48 h-48 mx-auto rounded-full"
@@ -11,14 +17,17 @@
         <div class="flex flex-col items-start justify-center space-y-4 md:col-span-2">
           <div class="flex items-center">
             <UserCircleIcon class="w-6 h-6 mr-2 text-gray-700" />
-            <h2 class="px-2 py-4 text-4xl font-bold text-center rounded bg-blueLight bg-opacity-70">
-              Je me présente:
-              <span class="text-blue-800">Elisa</span>
-            </h2>
+            <BaseTitle
+              title="Je me présente Elisa"
+              class="lg:mb-2"
+            />
+            <!-- Je me présente:
+            <span class="text-blue-800">Elisa</span>
+            </h2> -->
           </div>
           <div class="flex items-center space-x-4">
             <AcademicCapIcon class="h-6 text-gray-700" />
-            <span class="text-center text-gray-700">Praticienne en naturopathie masseuse diplômée à ISUPNAT certifiée FENA</span>
+            <span class="text-center text-gray-700">Praticienne alternative en naturopathie masseuse diplômée à ISUPNAT certifiée FENA</span>
           </div>
           <div class="flex items-center space-x-4">
             <CogIcon class="h-6 text-gray-700 animate-spin" />
@@ -88,6 +97,11 @@
         </BaseButton>
       </div>
     </div> -->
+      <img
+        src="/static/motif.svg"
+        class="h-12"
+        alt="illutration de titre"
+      >
     </div>
   </transition>
 </div>
