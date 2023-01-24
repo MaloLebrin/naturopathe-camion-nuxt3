@@ -36,7 +36,7 @@
 </div>
 <header class="shadow md:hidden">
   <Menu>
-    <MenuButton class="flex px-2 py-2">
+    <MenuButton class="flex items-center justify-center px-2 py-2">
       <Bars3Icon class="h-6 mr" />
       Menu
     </MenuButton>
@@ -49,31 +49,20 @@
       leave-to-class="transform scale-95 opacity-0"
     >
       <MenuItems
-        class="flex flex-wrap items-center justify-center px-2 py-2"
+        class="flex-col items-center justify-center w-full px-2 py-2 space-y-2"
         as="ul"
       >
         <MenuItem
           v-for="(page, index) in menuItems"
           :key="index"
-          class="inline-flex items-center justify-center text-white "
           as="li"
         >
-          <TruckIcon
-            v-if="index === 0"
-            class="w-6 h-6 text-gray-700"
-          />
-          <div class="w-10 h-px border rounded bg-blueDark border-blueDark" />
           <NuxtLink
             :to="page.path"
-            class="flex items-center justify-center w-20 h-20 rounded-full bg-blueDark"
+            class="flex items-center justify-center"
           >
             {{ page.name }}
           </NuxtLink>
-          <div class="w-10 h-px border rounded bg-blueDark border-blueDark" />
-          <MapPinIcon
-            v-if="index === menuItems.length - 1"
-            class="w-6 h-6 mr-2 text-gray-700"
-          />
         </MenuItem>
       </MenuItems>
     </transition>
