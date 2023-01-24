@@ -18,21 +18,43 @@
           </div>
           <div class="flex items-center space-x-4">
             <AcademicCapIcon class="h-6 text-gray-700" />
-            <span class="text-center text-gray-700">Naturopathe masseuse diplômée à ISUPNAT certifiée FENA</span>
+            <span class="text-center text-gray-700">Praticienne en naturopathie masseuse diplômée à ISUPNAT certifiée FENA</span>
           </div>
           <div class="flex items-center space-x-4">
             <CogIcon class="h-6 text-gray-700 animate-spin" />
-            <span class="text-center text-gray-700">En cours d'équivalence pour obtenir le diplôme fédéral Suisse</span>
+            <span class="text-center text-gray-700">En cours d'équivalence pour obtenir le diplôme fédéral Suisse à l'EPSN et reconnaissance ASCA</span>
           </div>
         </div>
       </div>
 
-      <p class="text-justify text-gray-700">
-        J’ai été prestataire masseuse au Spa Nordique du Domaine du Hirtz (France-Alsace) durant l’année 2021-2022 avant de m’installer à Verbier pour exercer.
-        J’ai moi-même eu un parcours chaotique avec la santé, c’est ce qui m’a mise sur le chemin de la naturopathie. Troubles digestifs handicapants, dysbiose, atteinte de la thyroïde, prise de poids, troubles du cycle menstruel (absence et ovaires polykystiques), acné, fatigue, douleurs. Je suis passée par tout ça, et aujourd’hui ce sont des simples souvenirs, derrière moi.
-      </p>
+      <div class="grid grid-cols-1 gap-10 justify-items-center md:grid-cols-2">
+        <ul class="space-x-10 space-y-2 list-disc">
+          <span>🥇 Expérience&nbsp;:</span>
+          <li
+            v-for="(exp, index) in experiences"
+            :key="index"
+          >
+            {{ exp }}
+          </li>
+        </ul>
 
-      <div class="grid gap-4 md:grid-cols-3">
+        <ul class="space-x-10 space-y-2 list-disc">
+          <div class="flex items-center space-x-2">
+            <XCircleIcon class="h-6 text-gray-700" />
+            <span>
+              Mon parcours santé&nbsp;:
+            </span>
+          </div>
+          <li
+            v-for="(item, index) in healthJourney"
+            :key="index"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="grid gap-4 md:grid-cols-3">
         <div class="flex items-center md:col-span-2">
           <TruckIcon class="w-6 h-6 mr-2 text-gray-700" />
           <h2 class="px-2 py-4 text-4xl font-bold text-center rounded bg-blueLight bg-opacity-70">
@@ -65,6 +87,7 @@
           En savoir plus
         </BaseButton>
       </div>
+    </div> -->
     </div>
   </transition>
 </div>
@@ -74,10 +97,29 @@
 import {
   AcademicCapIcon,
   CogIcon,
-  CubeIcon,
-  TruckIcon,
+  // CubeIcon,
+  // TruckIcon,
   UserCircleIcon,
+  XCircleIcon,
 } from '@heroicons/vue/24/outline'
+
+const experiences = [
+  'Masseuse à Inspire Verbier',
+  'Masseuse à Expérimental Chalet',
+  'Praticienne en naturopathie',
+]
+
+const healthJourney = [
+  'Troubles digestifs',
+  'dysbiose',
+  'hypothyroïdie',
+  'prise de poids',
+  'absence de règles',
+  'acné',
+  'fatigue',
+  'douleurs articulaires',
+  'cystites et mycoses',
+]
 
 useHead({
   title: 'Naturopathe-Camion | A propos',

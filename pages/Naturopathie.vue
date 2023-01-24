@@ -3,8 +3,15 @@
   <transition name="fade">
     <div class="grid gap-4 px-6 md:grid-cols-2">
       <div class="space-y-8 rounded-lg shadow-md animate-fade-in-down">
-        <BaseTitle>
-          La Naturopathie
+        <BaseTitle
+          title="La Naturopathie"
+          class="flex flex-col items-center mb-8"
+        >
+          <img
+            src="/static/motif.svg"
+            class="h-16"
+            alt="illutration de titre"
+          >
         </BaseTitle>
 
         <div class="px-6 py-4 space-y-6">
@@ -37,8 +44,15 @@
       </div>
 
       <div class="space-y-6 rounded-lg shadow-md animate-fade-in-down">
-        <BaseTitle>
-          Pourquoi consulter ?
+        <BaseTitle
+          title="Pourquoi consulter ?"
+          class="flex flex-col items-center mb-8"
+        >
+          <img
+            src="/static/motif.svg"
+            class="h-16"
+            alt="illutration de titre"
+          >
         </BaseTitle>
 
         <ul class="flex flex-col px-4 py-4 space-y-2 lg:space-y-0 lg:grid lg:grid-cols-2">

@@ -1,5 +1,5 @@
 <template>
-<div class="relative flex items-center justify-center w-full min-h-screen py-8 mb-32">
+<div class="relative flex items-center justify-center w-full min-h-screen py-8">
   <img
     v-if="!isLoading"
     class="absolute inset-0 object-cover w-full h-full"
