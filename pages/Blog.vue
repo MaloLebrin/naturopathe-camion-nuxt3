@@ -2,9 +2,16 @@
 <div class="flex justify-center w-full min-h-screen py-8 mb-32">
   <transition name="fade">
     <div class="relative flex flex-col mx-auto space-y-12 animate-fade-in-down">
-      <h1 class="px-4 py-2 text-3xl font-bold text-center rounded-md bg-blueLight bg-opacity-70">
-        Le Blog
-      </h1>
+      <BaseTitle
+        title="Le Blog"
+        class="flex flex-col items-center mb-8"
+      >
+        <img
+          src="/static/motif.svg"
+          class="h-16"
+          alt="illutration de titre"
+        >
+      </BaseTitle>
       <BaseLoader
         v-if="userStore.isLoading"
       />
