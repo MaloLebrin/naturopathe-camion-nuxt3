@@ -1,20 +1,20 @@
 <template>
-<header class="fixed flex-col items-center justify-around hidden max-h-screen min-h-screen px-10 py-20 space-y-4 shadow md:flex w-80 text-brown">
-  <div class="flex flex-col space-y-4 lg:space-y-12">
+<header class="fixed flex-col items-center justify-around hidden max-h-screen min-h-screen px-10 py-20 shadow md:flex w-80 text-brown">
+  <div class="flex flex-col space-y-2 lg:space-y-4">
     <img
       class="object-contain h-28"
       src="/static/totem_bleu.png"
       alt="logo"
     >
 
-    <h1 class="text-3xl font-bold text-center uppercase">
+    <h1 class="text-xl font-bold text-center uppercase lg:text-2xl">
       Thérapeute <br> en <br> Naturopathie
     </h1>
     <h2 class="text-xl font-bold text-center uppercase">
       Masseuse
     </h2>
 
-    <ul class="ml-4 list-disc lg:space-y-2">
+    <ul class="ml-4 list-disc lg:space-y-1">
       <li
         v-for="key in infosKeysArray"
         :key="key"
