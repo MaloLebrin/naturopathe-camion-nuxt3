@@ -3,10 +3,14 @@
   <div class="grid gap-4 px-6 md:grid-cols-2">
     <div class="relative space-y-8 rounded-lg shadow-md animate-fade-in-down">
       <BaseTitle
-        icon="feuille"
-        ext="svg"
+        title="Consultation Naturopathie"
+        class="flex flex-col items-center mb-8"
       >
-        Consultation Naturopathie
+        <img
+          src="/static/feuille.svg"
+          class="h-10"
+          alt="illutration de titre"
+        >
       </BaseTitle>
 
       <ul class="flex flex-col px-6 space-y-4">
@@ -66,10 +70,14 @@
 
     <div class="relative space-y-8 rounded-lg shadow-md animate-fade-in-down">
       <BaseTitle
-        icon="feuille"
-        ext="svg"
+        title="Soins-Massages"
+        class="flex flex-col items-center mb-8"
       >
-        Soins-Massages
+        <img
+          src="/static/feuille.svg"
+          class="h-10"
+          alt="illutration de titre"
+        >
       </BaseTitle>
 
       <ul class="flex flex-col ml-8 space-x-3 space-y-6">
