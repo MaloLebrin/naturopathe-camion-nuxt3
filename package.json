@@ -34,6 +34,7 @@
   "dependencies": {
     "@heroicons/vue": "^2.0.13",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@nuxtjs/supabase": "^0.3.0",
     "@pinia/nuxt": "^0.4.6",
     "dayjs": "^1.11.6",
     "nuxt": "3.1.1",
