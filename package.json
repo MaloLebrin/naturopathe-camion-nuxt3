@@ -7,7 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt build && nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt build && nuxt prepare",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e:run": "start-server-and-test preview http://localhost:3000 cy:run",
