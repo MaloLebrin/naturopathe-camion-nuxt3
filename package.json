@@ -18,6 +18,8 @@
     "@headlessui/vue": "^1.7.4",
     "@nuxtjs/supabase": "^0.3.0",
     "@nuxtjs/tailwindcss": "^6.2.0",
+    "@vueuse/core": "^9.10.0",
+    "@vueuse/nuxt": "^9.10.0",
     "autoprefixer": "^10.4.13",
     "cypress": "^12.2.0",
     "eslint": "^8.26.0",

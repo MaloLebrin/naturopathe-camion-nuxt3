@@ -1,5 +1,5 @@
 <template>
-<div class="flex justify-center w-full min-h-screen py-8 mb-32">
+<div class="flex w-full min-h-screen py-8 mb-32">
   <NuxtLink
     to="/blog"
     class="flex items-center px-4 py-6 space-x-2"
@@ -56,7 +56,7 @@ definePageMeta({
 useHead({
   title: `Naturopathe-Camion | ${route.query.title}`,
   meta: [
-    { name: 'description', content: article.value?.description },
+    { name: 'description', content: `${article.value?.description}` },
   ],
 })
 </script>

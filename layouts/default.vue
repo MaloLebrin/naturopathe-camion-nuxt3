@@ -2,7 +2,7 @@
 <main class="font-medium text-blueDark bg-white-break md:relative md:min-h-screen md:flex">
   <MenuSide />
   <MenuBottom />
-  <NuxtPage class="ml-80" />
+  <NuxtPage class="md:ml-80" />
   <TheFooter class="md:hidden" />
 </main>
 </template>

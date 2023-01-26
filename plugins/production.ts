@@ -8,6 +8,7 @@ export default defineNuxtPlugin(() => {
       },
       isTestMode: import.meta.env.TEST_MODE === true || import.meta.env.TEST_MODE === 'true',
       toast: useToast(),
+      isBlogEnable: import.meta.env.VITE_FEATURE_BLOG_ENABLED === true || import.meta.env.VITE_FEATURE_BLOG_ENABLED === 'true',
     },
   }
 })

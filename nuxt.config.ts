@@ -7,23 +7,33 @@ export default defineNuxtConfig({
     ],
   },
 
-  buildModules: [
-    '@nuxtjs/tailwindcss',
-    '@pinia/nuxt',
-    {
-      autoImports: [
-        // automatically imports `usePinia()`
-        'defineStore',
-        // automatically imports `usePinia()` as `usePiniaStore()`
-        ['defineStore', 'definePiniaStore'],
-      ],
-    },
-  ],
+  // buildModules: [
+  //   '@nuxtjs/tailwindcss',
+  //   '@pinia/nuxt',
+  //   {
+  //     autoImports: [
+  //       // automatically imports `usePinia()`
+  //       'defineStore',
+  //       // automatically imports `usePinia()` as `usePiniaStore()`
+  //       ['defineStore', 'definePiniaStore'],
+  //     ],
+  //   },
+  // ],
 
   modules: [
-    '@pinia/nuxt',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/supabase',
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    // {
+    //   autoImports: [
+    //     // automatically imports `usePinia()`
+    //     'defineStore',
+    //     // automatically imports `usePinia()` as `usePiniaStore()`
+    //     ['defineStore', 'definePiniaStore'],
+    //   ],
+    // },
+
   ],
 
   css: [
