@@ -3,6 +3,7 @@
   "packageManager": "yarn@1.22.19",
   "scripts": {
     "build": "nuxt build",
+    "prepare": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt build && nuxt preview",
