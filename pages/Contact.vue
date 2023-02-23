@@ -29,7 +29,7 @@
             href="tel:0782076454"
           >
             <PhoneArrowUpRightIcon class="mr-2 text-gray-700 w-7 h-7" />
-            Téléphone&nbsp;:&nbsp;<span class="font-bold">+33748104273</span>
+            Téléphone&nbsp;:&nbsp;<span class="font-bold">0782076454</span>
           </a>
         </li>
         <li>
@@ -39,7 +39,7 @@
             target="_blank"
           >
             <MapPinIcon class="mr-2 text-gray-700 w-7 h-7" />
-            Addresse&nbsp;:&nbsp;<span class="font-bold">Espace La Ruche Route de Mauvoisin 3 1934 Le Chable</span>
+            Addresse&nbsp;:&nbsp;<span class="font-bold">Espace La Ruche Route de Mauvoisin 3 <br> 1934 Le Chable</span>
           </a>
         </li>
       </ul>

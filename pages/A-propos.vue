@@ -27,11 +27,11 @@
           </div>
           <div class="flex items-center space-x-4">
             <AcademicCapIcon class="h-6 text-gray-700" />
-            <span class="text-center text-gray-700">Praticienne alternative en naturopathie masseuse diplômée à ISUPNAT certifiée FENA</span>
+            <span class="text-center text-gray-700">Praticienne en naturopathie masseuse diplômée à ISUPNAT certifiée FENA</span>
           </div>
           <div class="flex items-center space-x-4">
             <CogIcon class="h-6 text-gray-700 animate-spin" />
-            <span class="text-center text-gray-700">En cours d'équivalence pour obtenir le diplôme fédéral Suisse à l'EPSN et reconnaissance ASCA</span>
+            <span class="text-center text-gray-700">En cours d'équivalence à l'EPSN et reconnaissance ASCA</span>
           </div>
         </div>
       </div>
@@ -132,7 +132,7 @@ const healthJourney = [
   'acné',
   'fatigue',
   'douleurs articulaires',
-  'cystites et mycoses',
+  'cystites et mycoses à répétition',
 ]
 
 useHead({

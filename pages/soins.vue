@@ -20,7 +20,7 @@
               src="https://img.icons8.com/small/32/000000/spa-flower.png"
               alt="icon de fleur"
             >
-            Première Consultation&nbsp;:&nbsp;<span class="font-bold">1h30 - 110&nbsp;chf</span>
+            Consultation 60min:&nbsp;<span class="font-bold">115&nbsp;chf</span>
           </div>
           <p class="text-gray-700">
             Autour de vous et et vos habitudes, nous dressons ensemble un bilan de vitalité pour déterminer vos besoins et établir votre cure ensemble.
@@ -32,7 +32,7 @@
               src="https://img.icons8.com/small/32/000000/spa-flower.png"
               alt="icon de fleur"
             >
-            Consultation de suivi&nbsp;:&nbsp;<span class="font-bold"> 1h - 80&nbsp;chf</span>
+            Accompagnement et coaching sur 3 mois&nbsp;:&nbsp;<span class="font-bold">500&nbsp;chf</span>
           </div>
         </li>
       </ul>
@@ -90,7 +90,7 @@
             <span class="font-bold">30 min - 60&nbsp;chf</span>
           </div>
           <p class="ml-4 text-gray-700">
-            zones au choix (tête + mains + pieds OU dos/nuque/tête)
+            zones au choix
           </p>
         </li>
         <li class="flex flex-col space-x-1 space-y-2">
@@ -136,7 +136,7 @@
       </p> -->
 
       <ul class="flex flex-col px-4 ml-6 space-y-4 text-sm">
-        <label class="flex items-center"><BeakerIcon class="w-6 h-6 mr-2 text-gray-800" />Ingrédients utilisés :</label>
+        <label class="flex items-center"><BeakerIcon class="w-6 h-6 mr-2 text-gray-800" />Produits utilisés :</label>
         <li class="flex items-center ml-8 space-x-1">
           <PlusCircleIcon class="w-5 h-5" />
           <span>macérats huileux</span>
