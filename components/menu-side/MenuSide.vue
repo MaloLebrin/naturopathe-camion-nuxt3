@@ -39,7 +39,7 @@
     </div>
 
     <img
-      class="object-cover w-24 h-24 mx-auto rounded"
+      class="hidden object-cover w-24 h-24 mx-auto rounded xl:block"
       src="/static/truck.jpg"
       alt="camion"
     >
