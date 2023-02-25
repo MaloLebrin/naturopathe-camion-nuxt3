@@ -38,7 +38,14 @@
 
       <div class="grid grid-cols-1 gap-10 justify-items-center md:grid-cols-2">
         <ul class="space-x-10 space-y-2 list-disc">
-          <span>🥇 Expérience&nbsp;:</span>
+          <div class="flex items-center space-x-2">
+            <img
+              src="/static/medaille.png"
+              class="w-6 h-6 rounded-full"
+            >
+
+            <span> Expérience&nbsp;:</span>
+          </div>
           <li
             v-for="(exp, index) in experiences"
             :key="index"
@@ -49,7 +56,10 @@
 
         <ul class="space-x-10 space-y-2 list-disc">
           <div class="flex items-center space-x-2">
-            <XCircleIcon class="h-6 text-gray-700" />
+            <img
+              src="https://static3.depositphotos.com/1005920/205/i/600/depositphotos_2054635-stock-photo-white-aqua-button-with-red.jpg"
+              class="w-6 h-6 rounded-full"
+            >
             <span>
               Mon parcours santé&nbsp;:
             </span>
@@ -114,7 +124,6 @@ import {
   // CubeIcon,
   // TruckIcon,
   UserCircleIcon,
-  XCircleIcon,
 } from '@heroicons/vue/24/outline'
 
 const experiences = [
