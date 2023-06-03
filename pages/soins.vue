@@ -150,7 +150,7 @@
           <span>huiles essentielles</span>
         </li>
         <p class="text-gray-500">
-          J’adapte aussi la recette en fonction de la demande.
+          J’adapte aussi le mélange en fonction de la demande.
         </p>
       </ul>
 

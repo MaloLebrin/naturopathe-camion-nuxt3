@@ -66,6 +66,6 @@ const infosKeysArray = [
   'bilan morphologique',
   'thérapie holistique',
   'oligothérapie',
-  'hicronutrition',
+  'micronutrition',
 ]
 </script>
