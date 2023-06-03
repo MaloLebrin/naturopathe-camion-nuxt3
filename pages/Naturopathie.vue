@@ -188,7 +188,7 @@ const pathologies = [
     title: 'Troubles urinaires',
     symptoms: [
       'cystites récidivantes',
-      'lithias rénales',
+      'lithiases rénales',
       'troubles rénaux',
     ],
   },

@@ -129,6 +129,7 @@ import {
 const experiences = [
   'Masseuse à Inspire Verbier',
   'Masseuse à Expérimental Chalet',
+  'Masseuse au spa nordique',
   'Praticienne en naturopathie',
 ]
 

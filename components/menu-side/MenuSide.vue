@@ -1,5 +1,5 @@
 <template>
-<header class="fixed flex-col items-center justify-around hidden max-h-screen min-h-screen px-10 py-20 shadow md:flex w-80 text-brown">
+<header class="fixed flex-col items-center hidden max-h-screen min-h-screen px-10 py-4 shadow md:flex w-80 text-brown">
   <div class="flex flex-col space-y-2 lg:space-y-4">
     <img
       class="object-contain h-28"
@@ -14,11 +14,11 @@
       Masseuse
     </h2>
 
-    <ul class="ml-4 list-disc lg:space-y-1">
+    <ul class="ml-4 overflow-y-auto list-disc lg:space-y-1">
       <li
         v-for="key in infosKeysArray"
         :key="key"
-        class="capitalize"
+        class="text-sm capitalize"
       >
         {{ key }}
       </li>
@@ -66,6 +66,6 @@ const infosKeysArray = [
   'bilan morphologique',
   'thérapie holistique',
   'oligothérapie',
-  'hicronutrition',
+  'micronutrition',
 ]
 </script>
