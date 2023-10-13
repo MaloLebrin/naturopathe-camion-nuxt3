@@ -14,7 +14,7 @@
     "runHeaded": "node .output/server/index.mjs & ./node_modules/.bin/cypress run --headed --browser chrome "
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.35.0",
+    "@antfu/eslint-config": "^0.43.0",
     "@headlessui/vue": "^1.7.4",
     "@nuxtjs/supabase": "^0.3.0",
     "@nuxtjs/tailwindcss": "^6.2.0",
