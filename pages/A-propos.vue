@@ -30,8 +30,12 @@
             <span class="text-center text-gray-700">Praticienne en naturopathie masseuse diplômée à ISUPNAT certifiée FENA</span>
           </div>
           <div class="flex items-center space-x-4">
-            <CogIcon class="h-6 text-gray-700 animate-spin" />
-            <span class="text-center text-gray-700">En cours d'équivalence à l'EPSN et reconnaissance ASCA</span>
+            <AcademicCapIcon class="h-6 text-gray-700" />
+            <span class="text-center text-gray-700">Agréé ASCA</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <AcademicCapIcon class="h-6 text-gray-700" />
+            <span class="text-center text-gray-700">Diplômée EPSN agréé OrtraMa</span>
           </div>
         </div>
       </div>
@@ -120,7 +124,6 @@
 <script setup lang="ts">
 import {
   AcademicCapIcon,
-  CogIcon,
   // CubeIcon,
   // TruckIcon,
   UserCircleIcon,
